@@ -113,7 +113,7 @@ namespace Backgammon
                             d2 = i + dice2;
                             d3 = i + dice1 + dice2;
                         }
-                        if ((d1 >= 0 && d1 <= 23 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && d2 <= 23 && inactivePlayer._laces[d2] <= 1 && dice2 != 0))
+                        if ((d1 >= 0 && d1 <= 23 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && d2 <= 23 && inactivePlayer._laces[d2] <= 1 && dice2 != 0) || (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1 && dice1 != 0 && dice2 != 0))
                         {
                             Point p;
                             if (activePlayer._laces[i] > 5)
@@ -361,7 +361,7 @@ namespace Backgammon
                             if (activePlayer == black && el.Fill == piece_light)
                             {
                                 Canvas.SetLeft( el, 183 );
-                                Canvas.SetTop( el, 68 );
+                                Canvas.SetTop( el, 228 );
                                 white._laces[i]--;
                                 white._out++;
                                 el.Stroke = Brushes.Gray;
@@ -370,7 +370,7 @@ namespace Backgammon
                             else if (activePlayer == white && el.Fill == piece_dark)
                             {
                                 Canvas.SetLeft( el, 183 );
-                                Canvas.SetTop( el, 228 );
+                                Canvas.SetTop( el, 68 );
                                 black._laces[i]--;
                                 black._out++;
                                 el.Stroke = Brushes.Gray;
