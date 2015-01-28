@@ -28,18 +28,15 @@ namespace Backgammon
         Player activePlayer, inactivePlayer;
         BlurEffect blur = new BlurEffect();
         Polygon[] polygons;
-        Ellipse[] piecesInPolygon;
-        private int dice1, dice2, start;
-        private int d1, d2, d3;
         Grid homeGrid;
 
-        
+        private int dice1, dice2, start;
+        private int d1, d2, d3;
         int _totalChildren = 0;
-        int oldAmount = 0;
 
         TextBlock numberOfPieces;
         System.Media.SoundPlayer music = new System.Media.SoundPlayer(@"Ljud\musik.wav");
-        bool cheack;
+        bool soundOn;
 
         ImageBrush piece_light = new ImageBrush();
         ImageBrush piece_dark = new ImageBrush();
@@ -51,7 +48,7 @@ namespace Backgammon
         {
         } // Active
 
-        void DeActive(Object sender, EventArgs args)
+        void InActive(Object sender, EventArgs args)
         {
             theCanvas.Opacity = 1;
             theCanvas.IsEnabled = false;
@@ -72,34 +69,26 @@ namespace Backgammon
 
         public GameBoard()
         {
+            App.Current.Activated += Active;
+            App.Current.Deactivated += InActive;
+
             polygon_light.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-light.jpg", UriKind.Relative ) );
             polygon_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-dark.jpg", UriKind.Relative ) );
             piece_light.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-white.jpg", UriKind.Relative ) );
             piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.jpg", UriKind.Relative ) );
-            home_image.ImageSource = new BitmapImage(new Uri(@"Grafik/wood-border2.jpg", UriKind.Relative));
+            home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/wood-border2.jpg", UriKind.Relative ) );
             playMusic();
-            App.Current.Activated += Active;
-            App.Current.Deactivated += DeActive;
             InitializeComponent();
             menuGrid.Opacity = 1;
             menuGrid.IsEnabled = true;
             theCanvas.Opacity = 1;
             theCanvas.IsEnabled = false;
             theCanvas.Effect = blur;
-
             DiceView1.Opacity = 0;
             DiceView2.Opacity = 0;
-
-            polygons = new Polygon[] { p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 };
-
             blackTurnArrow.Opacity = 0;
             whiteTurnArrow.Opacity = 0;
-
-            for (int i = 0; i < 24; i++)
-            {
-                black._laces[i] = 0;
-                white._laces[i] = 0;
-            }
+            polygons = new Polygon[] { p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 }; 
         } // GAMEBOARD
 
         private void lightup_pieces()
@@ -112,9 +101,6 @@ namespace Backgammon
                 {
                     if (activePlayer._laces[i] > 0 && DiceRoll.IsEnabled == false)
                     {
-                        d1 = 0;
-                        d2 = 0;
-                        d3 = 0;
                         if (activePlayer == black)
                         {
                             d1 = i - dice1;
@@ -123,11 +109,11 @@ namespace Backgammon
                         }
                         else
                         {
-                            d1 = 23 - (i + dice1);
-                            d2 = 23 - (i + dice2);
-                            d3 = 23 - (i + dice1 + dice2);
+                            d1 = i + dice1;
+                            d2 = i + dice2;
+                            d3 = i + dice1 + dice2;
                         }
-                        if ((d1 >= 0 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && inactivePlayer._laces[d2] <= 1 && dice2 != 0))
+                        if ((d1 >= 0 && d1 <= 23 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && d2 <= 23 && inactivePlayer._laces[d2] <= 1 && dice2 != 0))
                         {
                             Point p;
                             if (activePlayer._laces[i] > 5)
@@ -152,59 +138,25 @@ namespace Backgammon
                                 el.Stroke = Brushes.Red;
                             }
                         }
-                        //else if (activePlayer == white && ((d3 <= 23 && inactivePlayer._laces[d3] <= 1) || (d1 <= 23 && inactivePlayer._laces[d1] <= 1) || (d2 <= 23 && inactivePlayer._laces[d2] <= 1)))
-                        //{
-                        //    Point p;
-                        //    if (activePlayer._laces[i] > 5)
-                        //    {
-                        //        if (i < 12)
-                        //            p = new Point( model.pointX[i] + 12, 24 * 5 - 12 );
-                        //        else
-                        //            p = new Point( model.pointX[i] + 12, 320 - 24 * 5 + 12 );
-                        //    }
-                        //    else
-                        //    {
-                        //        if (i < 12)
-                        //            p = new Point( model.pointX[i] + 12, activePlayer._laces[i] * 24 - 12 );
-                        //        else
-                        //            p = new Point( model.pointX[i] + 12, 320 - activePlayer._laces[i] * 24 + 12 );
-                        //    }
-                        //    HitTestResult hr = VisualTreeHelper.HitTest( theCanvas, p );
-                        //    Object obj = hr.VisualHit;
-                        //    if (obj is Ellipse)
-                        //    {
-                        //        Ellipse el = (Ellipse)obj;
-                        //        el.Stroke = Brushes.Red;
-                        //    }
-                        //}
                     }
-
                 }
             }
-            else
+            else if (activePlayer._out > 0)
             {
                 Point p;
                 if (activePlayer == black)
-                {
-                    p = new Point(195, 240);
-                }
+                    p = new Point( 195, 240 );
                 else
-                {
-                    p = new Point(195, 80);
-                }
-
+                    p = new Point( 195, 80 );
                 HitTestResult hr = VisualTreeHelper.HitTest(theCanvas, p);
                 Object obj = hr.VisualHit;
-                
                 if(obj is Ellipse )
                 {
-                Ellipse el = (Ellipse)obj;
+                    Ellipse el = (Ellipse)obj;
                     el.Stroke = Brushes.Red;
-
                 }
- 
             }
-        }
+        } // lightup_pieces
 
         private void lightdown_pieces()
         {
@@ -217,7 +169,7 @@ namespace Backgammon
                     el.Stroke = Brushes.Gray;
                 }
             }
-        }
+        } // lightdown_pieces
 
         private void lightup_polygons( int i )
         {
@@ -233,36 +185,15 @@ namespace Backgammon
                 d2 = i + dice2;
                 d3 = i + dice1 + dice2;
             }
-            if (dice1 != 0 || dice2 != 0)
-            {
-                if (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1)
-                {
-                    polygons[d3].Fill = Brushes.Yellow;
-                }
-                if (activePlayer._goalReady && (d3) == -1)
-                    homeGrid.Background = Brushes.Red;
-                else if (activePlayer._goalReady && (d3) < -1)
-                    homeGrid.Background = Brushes.Red;
-
-                if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
-                {
-                    polygons[d1].Fill = Brushes.Yellow;
-                }
-                if (activePlayer._goalReady && (d1) == -1)
-                    homeGrid.Background = Brushes.Red;
-                else if (activePlayer._goalReady && (d3) < -1)
-                    homeGrid.Background = Brushes.Red;
-
-                if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
-                {
-                    polygons[d2].Fill = Brushes.Yellow;
-                }
-                if (activePlayer._goalReady && (d2) == -1)
-                    homeGrid.Background = Brushes.Red;
-                else if (activePlayer._goalReady && (d3) < -1)
-                    homeGrid.Background = Brushes.Red;
-            }
-        }
+            if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
+                polygons[d1].Fill = Brushes.Yellow;
+            if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
+                polygons[d2].Fill = Brushes.Yellow;
+            if (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1)
+                polygons[d3].Fill = Brushes.Yellow;
+            if (activePlayer._goalReady && (d1 == -1 || d1 < -1 || d2 == -1 || d2 < -1 || d3 == -1 || d3 < -1))
+                homeGrid.Background = Brushes.Red;
+        } // lightup_polygons
 
         private void lightdown_polygons()
         {
@@ -276,178 +207,314 @@ namespace Backgammon
                         polygons[i].Fill = polygon_light;
                 }
             }
-        }
+        } // lightdown_polygons
 
         private void lightup_out()
         {
-            int D1, D2, D3;
-
+            bool possibleMove = false;
             if (activePlayer == black)
             {
-                D3 = 24 - dice1 - dice2;
-                D1 = 24 - dice1;
-                D2 = 24 - dice2;
+                d1 = 24 - dice1;
+                d2 = 24 - dice2;
+                d3 = 24 - dice1 - dice2;
             }
             else
             {
-                D3 = 23 - ((-1) + dice1 + dice2);
-                D1 = 23 - ( (-1) + dice1);
-                D2 = 23- ( (-1) + dice2);
-            
+                d1 = dice1 - 1;
+                d2 = dice2 - 1;
+                d3 = dice1 + dice2 - 1;
             }
+            if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
+            {
+                polygons[d1].Fill = Brushes.Yellow;
+                possibleMove = true;
+            }
+            if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
+            {
+                polygons[d2].Fill = Brushes.Yellow;
+                possibleMove = true;
+            }
+            if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
+            {
+                polygons[d3].Fill = Brushes.Yellow;
+                possibleMove = true;
+            }
+            if (!possibleMove)
+            {
+                changePlayer();
+            }
+        } // lightup_out
 
-            
-            
-            if (D3 >= 0 && inactivePlayer._laces[D3] <= 1)
+        private void select_piece( Object obj )
+        {
+            Ellipse el = (Ellipse)obj;
+            if (el.Stroke == Brushes.Red)
             {
-                polygons[D3].Fill = Brushes.Yellow;
+                _pieceSelected = el; 
+                _posOfEllipseOnHit.X = Canvas.GetLeft( _pieceSelected );
+                _posOfEllipseOnHit.Y = Canvas.GetTop( _pieceSelected );
+                theCanvas.Children.Remove( _pieceSelected );
+                theCanvas.Children.Add( _pieceSelected );
+
+                if (activePlayer._out == 0)
+                {
+                    for (int i = 0; i < 24; i++)
+                    {
+                        if (i < 12 && _posOfEllipseOnHit.X == model.pointX[i] && _posOfEllipseOnHit.Y < 160)
+                        {
+                            start = i;
+                            break;
+                        }
+                        else if (i > 11 && _posOfEllipseOnHit.X == model.pointX[i] && _posOfEllipseOnHit.Y > 160)
+                        {
+                            start = i;
+                            break;
+                        }
+                    }
+                    lightdown_pieces();
+                    _pieceSelected.Stroke = Brushes.Red;
+                    lightup_polygons( start );
+                }
+                else
+                {
+                    lightup_out();
+                }
             }
-            if (D1>= 0 && dice1 != 0 && inactivePlayer._laces[D1] <= 1)
-            {
-                polygons[D1].Fill = Brushes.Yellow;
-            }
-            if (D2 >= 0 && dice2 != 0 && white._laces[D2] <= 1)
-            {
-                polygons[D2].Fill = Brushes.Yellow;
-            }
-            
         }
+
+        private void moveToPolygon( int move )
+        {
+            if (polygons[move].Fill == Brushes.Yellow)
+            {
+                if (activePlayer._out == 0)
+                {
+                    activePlayer._laces[start]--;
+                    activePlayer._laces[move]++;
+                }
+                else
+                {
+                    activePlayer._out--;
+                    activePlayer._laces[move]++;
+                }
+
+                if (move == d1)
+                {
+                    dice1 = 0;
+                    DiceView1.Effect = blur;
+                }
+                else if (move == d2)
+                {
+                    dice2 = 0;
+                    DiceView2.Effect = blur;
+                }
+                else if (move == d3)
+                {
+                    dice1 = 0;
+                    dice2 = 0;
+                    DiceView1.Effect = blur;
+                    DiceView2.Effect = blur;
+                }
+                Canvas.SetLeft( _pieceSelected, model.pointX[move] );
+                int spacing = 24;
+
+                if (activePlayer._laces[move] > 5)
+                {
+                    if (move < 12)
+                        Canvas.SetTop( _pieceSelected, spacing * 4 );
+                    else
+                        Canvas.SetTop( _pieceSelected, 320 - spacing * 5 );
+
+                    numberOfPieces = new TextBlock();
+                    Panel panel = (Panel)numberOfPieces.Parent;
+                    theCanvas.Children.Remove( numberOfPieces );
+                    theCanvas.Children.Add( numberOfPieces );
+                    numberOfPieces.Height = 20;
+                    numberOfPieces.Width = 20;
+                    Canvas.SetLeft( numberOfPieces, Canvas.GetLeft( _pieceSelected ) );
+                    Canvas.SetTop( numberOfPieces, Canvas.GetTop( _pieceSelected ) );
+                    numberOfPieces.Foreground = Brushes.Red;
+                    numberOfPieces.Text = activePlayer._laces[move].ToString();
+                }
+                else
+                {
+                    if (move < 12)
+                        Canvas.SetTop( _pieceSelected, spacing * (activePlayer._laces[move] - 1) );
+                    else
+                        Canvas.SetTop( _pieceSelected, 320 - spacing * activePlayer._laces[move] );
+                }
+                homeGrid.Background = home_image;
+            }
+        }
+
+        private void putOut( int i )
+        {
+            if (black._laces[i] == 1 && white._laces[i] == 1)
+            {
+                _totalChildren = theCanvas.Children.Count - 1;
+                for (int j = _totalChildren; j > 0; j--)
+                {
+                    if (theCanvas.Children[j].GetType() == typeof( Ellipse ))
+                    {
+                        Ellipse el = (Ellipse)theCanvas.Children[j];
+                        if (i < 12 && Canvas.GetLeft( el ) == model.pointX[i] && Canvas.GetTop( el ) == 0)
+                        {
+                            if (activePlayer == black && el.Fill == piece_light)
+                            {
+                                Canvas.SetLeft( el, 183 );
+                                Canvas.SetTop( el, 68 );
+                                white._laces[i]--;
+                                white._out++;
+                                el.Stroke = Brushes.Gray;
+                                break;
+                            }
+                            else if (activePlayer == white && el.Fill == piece_dark)
+                            {
+                                Canvas.SetLeft( el, 183 );
+                                Canvas.SetTop( el, 228 );
+                                black._laces[i]--;
+                                black._out++;
+                                el.Stroke = Brushes.Gray;
+                                break;
+                            }
+                        }
+                        else if (Canvas.GetLeft( el ) == model.pointX[i] && Canvas.GetTop( el ) == 296)
+                        {
+                            if (activePlayer == black && el.Fill == piece_light)
+                            {
+                                Canvas.SetLeft( el, 183 );
+                                Canvas.SetTop( el, 228 );
+                                white._laces[i]--;
+                                white._out++;
+                                el.Stroke = Brushes.Gray;
+                                break;
+                            }
+                            else if (activePlayer == white && el.Fill == piece_dark)
+                            {
+                                Canvas.SetLeft( el, 183 );
+                                Canvas.SetTop( el, 68 );
+                                black._laces[i]--;
+                                black._out++;
+                                el.Stroke = Brushes.Gray;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void moveHome()
+        {
+            if (blackHome.Background == Brushes.Red || whiteHome.Background == Brushes.Red)
+            {
+                int distance = 0;
+                if (activePlayer == black)
+                    distance = start - (-1);
+                else
+                    distance = 24 - start;
+                if (distance <= dice1 + dice2 && distance > dice1 && distance > dice2)
+                {
+                    dice1 = 0;
+                    dice2 = 0;
+                    DiceView1.Effect = blur;
+                    DiceView2.Effect = blur;
+                }
+                if (dice1 != dice2)
+                {
+                    if (distance == dice1)
+                    {
+                        dice1 = 0;
+                        DiceView1.Effect = blur;
+                    }
+                    if (distance == dice2)
+                    {
+                        dice2 = 0;
+                        DiceView2.Effect = blur;
+                    }
+
+                    if (distance < dice1 && distance < dice2)
+                    {
+                        if (dice1 > dice2)
+                        {
+                            dice1 = 0;
+                            DiceView1.Effect = blur;
+                        }
+                        else
+                        {
+                            dice2 = 0;
+                            DiceView2.Effect = blur;
+                        }
+                    }
+                }
+                else
+                {
+                    dice1 = 0;
+                    DiceView1.Effect = blur;
+                }
+                activePlayer._laces[start]--;
+                activePlayer._bricksAmount--;
+            }
+        } 
+
+        private bool moveToFinish()
+        {
+            int[] pos;
+            if (activePlayer == black)
+            {
+                pos = new int[] { 0, 1, 2, 3, 4, 5 };
+            }
+            else
+            {
+                pos = new int[] { 23, 22, 21, 20, 19, 18 };
+            }
+            for (int i = 0; i < 24; i++)
+            {
+                if (activePlayer._laces[i] != 0 && i != pos[0] && i != pos[1] && i != pos[2] && i != pos[3] && i != pos[4] && i != pos[5])
+                {
+                    return false;
+                }
+            }
+            return true;
+        } // moveToFinish
 
         private void Canvas_MouseDown_1( object sender, MouseButtonEventArgs e )
         {
-
+            Point pt = e.GetPosition( theCanvas );
+            
             if (moveToFinish())
-            {
                 activePlayer._goalReady = true;
-            }
             else
-            {
                 activePlayer._goalReady = false;
-            }
-
 
             if (_pieceSelected == null)
             {
                 start = 0;
-                Point pt = e.GetPosition( theCanvas );
                 HitTestResult hr = VisualTreeHelper.HitTest( theCanvas, pt );
                 Object obj = hr.VisualHit;
 
                 if (obj is Ellipse)
                 {
-                    Ellipse el = (Ellipse)obj;
-                    if (activePlayer._out == 0)
-                    {
-
-                        for (int i = 0; i < 24; i++)
-                        {
-                            var p = e.GetPosition(polygons[i]);
-                            Rect rect = VisualTreeHelper.GetDescendantBounds(polygons[i]);
-                            if (rect.Contains(p))
-                            {
-                                start = i;
-                            }
-                        }
-                        
-                        if (el.Stroke == Brushes.Red)
-                        {
-
-                            _pieceSelected = el;
-                            theCanvas.Children.Remove(_pieceSelected);
-                            theCanvas.Children.Add(_pieceSelected);
-
-                            _posOfMouseOnHit = pt;
-                            _posOfEllipseOnHit.X = Canvas.GetLeft(_pieceSelected);
-                            _posOfEllipseOnHit.Y = Canvas.GetTop(_pieceSelected);
-
-                            lightdown_pieces();
-                            _pieceSelected.Stroke = Brushes.Red;
-                            lightup_polygons(start);
-
-                        }
-                    }
-                    else
-                    {
-                        _pieceSelected = el;
-                        lightup_out();  
-                    }
+                    select_piece( obj );
                 }
             }
             else
             {
                 int move = 0;
+                _posOfMouseOnHit = pt;
                 for (int i = 0; i < 24; i++)
                 {
-                    var p = e.GetPosition(polygons[i]);
-                    Rect rect = VisualTreeHelper.GetDescendantBounds(polygons[i]);
-                    if (rect.Contains(p))
+                    if (i < 12 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y < 160)
                     {
                         move = i;
+                        break;
+                    }
+                    else if (i > 11 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y > 160)
+                    {
+                        move = i;
+                        break;
                     }
                 }
-
-                if (polygons[move].Fill == Brushes.Yellow)
-                {
-                    if (activePlayer._out == 0)
-                    {
-                        activePlayer._laces[start]--;
-                        activePlayer._laces[move]++;
-                    }
-                    else
-                    {
-                        activePlayer._out--;
-                        activePlayer._laces[move]++;
-                    }
-
-                    if (move == d1)
-                    {
-                        dice1 = 0;
-                        DiceView1.Effect = blur;
-
-                    }
-                    else if (move == d2)
-                    {
-                        dice2 = 0;
-                        DiceView2.Effect = blur;
-                    }
-                    else if (move == d3)
-                    {
-                        dice1 = 0;
-                        dice2 = 0;
-                        DiceView1.Effect = blur;
-                        DiceView2.Effect = blur;
-                    }
-                    Canvas.SetLeft(_pieceSelected, model.pointX[move]);
-                    int spacing = 24;
-
-                    if (activePlayer._laces[move] > 5)
-                    {
-                        if (move < 12)
-                            Canvas.SetTop(_pieceSelected, spacing * 4);
-                        else
-                            Canvas.SetTop(_pieceSelected, 320 - spacing * 5);
-
-                        numberOfPieces = new TextBlock();
-                        Panel panel = (Panel)numberOfPieces.Parent;
-                        theCanvas.Children.Remove(numberOfPieces);
-                        theCanvas.Children.Add(numberOfPieces);
-                        numberOfPieces.Height = 20;
-                        numberOfPieces.Width = 20;
-                        Canvas.SetLeft(numberOfPieces, Canvas.GetLeft(_pieceSelected));
-                        Canvas.SetTop(numberOfPieces, Canvas.GetTop(_pieceSelected));
-                        numberOfPieces.Foreground = Brushes.Red;
-                        numberOfPieces.Text = activePlayer._laces[move].ToString();
-                    }
-                    else
-                    {
-                        if (move < 12)
-                            Canvas.SetTop(_pieceSelected, spacing * (activePlayer._laces[move] - 1));
-                        else
-                            Canvas.SetTop(_pieceSelected, 320 - spacing * activePlayer._laces[move]);
-                    }
-                    homeGrid.Background = home_image;
-                }
-
+                moveToPolygon( move );
                 putOut(move);
                 moveHome();
                 homeGrid.Background = home_image;
@@ -461,6 +528,8 @@ namespace Backgammon
                 {
                     changePlayer();
                 }
+                theCanvas.Children.Remove( _pieceSelected );
+                theCanvas.Children.Add( _pieceSelected );
                 _pieceSelected.Stroke = Brushes.Gray;
                 _pieceSelected = null;
 
@@ -505,6 +574,8 @@ namespace Backgammon
                 whiteTurnArrow.Opacity = 1;
                 homeGrid = whiteHome;
             }
+            dice1 = 0;
+            dice2 = 0;
             DiceRoll.IsEnabled = true;
             DiceRoll.Opacity = 1;
             DiceView1.Opacity = 0;
@@ -613,6 +684,7 @@ namespace Backgammon
                 if (theCanvas.Children[i].GetType() == typeof(Ellipse))
                 {
                     noEllipse = false;
+                    break;
                 }
             }
 
@@ -677,11 +749,11 @@ namespace Backgammon
         private void playMusic()
         {
             music.PlayLooping();
-            cheack = true;
+            soundOn = true;
         }
         private void btn_Off(object sender, RoutedEventArgs e)
         {
-            if (cheack == true)
+            if (soundOn == true)
             {
                 Image img = new Image();
                 Uri uri = new Uri(@"Grafik/sound.png", UriKind.Relative);
@@ -689,7 +761,7 @@ namespace Backgammon
                 img.Source = imgSource;
                 Btn_sound.Content = img;
                 music.Stop();
-                cheack = false;
+                soundOn = false;
             }
             else
             {
@@ -699,7 +771,7 @@ namespace Backgammon
                 ImageSource imgSource = new BitmapImage(uri);
                 img1.Source = imgSource;
                 Btn_sound.Content = img1;
-                cheack = true;
+                soundOn = true;
             }
         }
         private void Mouse_leave_Menu(object sender, MouseEventArgs e)
@@ -712,132 +784,6 @@ namespace Backgammon
             DoubleAnimation Anim = new DoubleAnimation(1, TimeSpan.FromSeconds(2));
             menu_button.BeginAnimation(Button.OpacityProperty, Anim);
         }
-
-        private bool moveToFinish()
-        {
-            int[] pos;
-            if (activePlayer == black)
-            {
-                pos = new int[] { 0, 1, 2, 3, 4, 5 };
-            }
-            else
-            {
-                pos = new int[] { 23, 22, 21, 20, 19, 18 };
-            }
-            for (int i = 0; i < 24; i++)
-            {
-                if (activePlayer._laces[i] != 0 && i != pos[0] && i != pos[1] && i != pos[2] && i != pos[3] && i != pos[4] && i != pos[5])
-                {
-                    return false;
-                }
-            }
-            return true;
-        } // moveToFinish
-
-        private void putOut(int i)
-        {
-            if (black._laces[i] == 1 && white._laces[i] == 1)
-            {
-                _totalChildren = theCanvas.Children.Count - 1;
-                for (int j = _totalChildren; j > 0; j--)
-                {
-                    if (theCanvas.Children[j].GetType() == typeof(Ellipse))
-                    {
-                        Ellipse el = (Ellipse)theCanvas.Children[j];
-                        if (i < 12 && Canvas.GetLeft(el) == model.pointX[i] && Canvas.GetTop(el) == 0)
-                        {
-                            if (activePlayer == black && el.Fill == piece_light)
-                            {
-                                Canvas.SetLeft(el, 183);
-                                Canvas.SetTop(el, 68);
-                                white._laces[i]--;
-                                white._out++;
-                            }
-                            else if (activePlayer == white && el.Fill == piece_dark)
-                            {
-                                Canvas.SetLeft(el, 183);
-                                Canvas.SetTop(el, 228);
-                                black._laces[i]--;
-                                black._out++;
-                            }
-                        }
-                        else if (Canvas.GetLeft(el) == model.pointX[i] && Canvas.GetTop(el) == 296)
-                        {
-                            if (activePlayer == black && el.Fill == piece_light)
-                            {
-                                Canvas.SetLeft(el, 183);
-                                Canvas.SetTop(el, 228);
-                                white._laces[i]--;
-                                white._out++;
-                            }
-                            else if (activePlayer == white && el.Fill == piece_dark)
-                            {
-                                Canvas.SetLeft(el, 183);
-                                Canvas.SetTop(el, 68);
-                                black._laces[i]--;
-                                black._out++;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void moveHome()
-        {
-            if (blackHome.Background == Brushes.Red || whiteHome.Background == Brushes.Red)
-                    {
-                        int distance = 0;
-                        if (activePlayer == black)
-                            distance = start - (-1);
-                        else
-                            distance = 24 - start;
-                        if (distance <= dice1 + dice2 && distance > dice1 && distance > dice2)
-                        {
-                            dice1 = 0;
-                            dice2 = 0;
-                            DiceView1.Effect = blur;
-                            DiceView2.Effect = blur;
-                        }
-                        if (dice1 != dice2)
-                        {
-                            if (distance == dice1)
-                            {
-                                dice1 = 0;
-                                DiceView1.Effect = blur;
-                            }
-                            if (distance == dice2)
-                            {
-                                dice2 = 0;
-                                DiceView2.Effect = blur;
-                            }
-
-                            if (distance < dice1 && distance < dice2)
-                            {
-                                if (dice1 > dice2)
-                                {
-                                    dice1 = 0;
-                                    DiceView1.Effect = blur;
-
-                                }
-                                else
-                                {
-                                    dice2 = 0;
-                                    DiceView2.Effect = blur;
-                                }
-                            } 
-                        }
-                        else
-                        {
-                            dice1 = 0;
-                            DiceView1.Effect = blur;
-                        }
-
-                        activePlayer._laces[start]--;
-                        activePlayer._bricksAmount--;
-                    }
-
-                }
         }
     }
 

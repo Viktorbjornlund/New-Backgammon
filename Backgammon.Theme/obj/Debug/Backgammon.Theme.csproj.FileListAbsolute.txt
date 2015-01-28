@@ -33,7 +33,6 @@ C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\
 C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.pdb
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.dll
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.pdb
-C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csprojResolveAssemblyReference.cache
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\ButtonStyle.baml
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Theme.baml
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme_MarkupCompile.cache

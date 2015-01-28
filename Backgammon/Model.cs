@@ -36,65 +36,6 @@ namespace Backgammon
             }
         }
 
-        // returnerar true om flytt är giltlig
-        public bool check( double newY, double newX, Player inActivePlayer )
-        {
-            for(int i=0; i<24; i++)
-            {
-                if (i <= 11 && newY <= 160 && newX < (pointX[i]+16) && newX >= (pointX[i]-14) && inActivePlayer._laces[i] != 0)
-                {
-                    return false;
-                }
-                else if (i > 11 && newY > 160 && newX < (pointX[i] + 16) && newX >= (pointX[i] - 14) && inActivePlayer._laces[i] != 0) 
-                { 
-                    return false;
-                }
-            }
-            return true;
-        } // check
-
-        public double fixPositionX(double newX)
-        {
-            for (int i = 0; i < 12; i++)
-            {
-                if (newX < (pointX[i] + 16) && newX >= (pointX[i] - 14))
-                {
-                    return pointX[i];
-                }
-             
-            }
-            return 0;
-        } // fixPositionX
-
-       // Anropas efter giltig flytt, uppdaterar till array till rätt spelplan
-        public void changeArray(double newY, double newX, double oldY, double oldX, Player activePlayer)
-        {
-
-            for (int i = 0; i < 24; i++)
-            {
-                if (i <= 11 && newY <= 160 && newX < (pointX[i] + 16) && newX >= (pointX[i] - 14))
-                {
-                    activePlayer._laces[i]++;
-                }
-                else if (i > 11 && newY > 160 && newX < (pointX[i] + 16) && newX >= (pointX[i] - 14))
-                { 
-                    activePlayer._laces[i]++;
-                }
-            }
-
-            for (int i = 0; i < 24; i++)
-            {
-                if (i <= 11 && oldY <= 160 && oldX < (pointX[i] + 16) &&  oldX >= (pointX[i] - 14))
-                {
-                    activePlayer._laces[i]--;
-                }
-                else if (i > 11 && oldY > 160 && oldX < (pointX[i] + 16) && oldX >= (pointX[i] - 14))
-                {
-                    activePlayer._laces[i]--;
-                }
-            }
-        } // changeArray
-
         // Retunerar ett slumptal mellan 1-6
         public int dice()
         {

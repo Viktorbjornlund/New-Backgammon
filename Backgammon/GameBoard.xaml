@@ -270,7 +270,6 @@
             </Button>
 
             <Button Style="{DynamicResource ButtonStyle}" x:Name="DiceRoll" Click="diceRoll" Width="50" Height="20" Canvas.Right="25" Canvas.Top="150">Roll Dice</Button>
-
             <Button Style="{DynamicResource ButtonStyle}" Name="menu_button" MouseEnter="Mouse_enter_menu" MouseLeave="Mouse_leave_Menu" Height="20" Width="50" Canvas.Top="150" Canvas.Left="65" Click="menu_action">Menu</Button>
         </Canvas>
 

@@ -210,9 +210,6 @@ C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\MainWi
 C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
 C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
 C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
-C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
-C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.exe
-C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.pdb
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\noSound.png
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
@@ -225,6 +222,7 @@ C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\wood
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Ljud\ClickOn.wav
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Ljud\musik.wav
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Ljud\roll.wav
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Backgammon.exe
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Backgammon.pdb
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Backgammon.Theme.dll
@@ -243,3 +241,5 @@ C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\MainWindow.
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.pdb
