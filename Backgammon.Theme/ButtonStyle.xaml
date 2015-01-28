@@ -12,7 +12,7 @@
 
     <SolidColorBrush x:Key="BorderBrush" Color="#B7B7B7"/>
     
-    <Style TargetType="Button">
+    <Style x:Key="ButtonStyle" TargetType="Button">
         
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>

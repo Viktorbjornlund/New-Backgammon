@@ -265,19 +265,20 @@
                     </Grid>
                 </Grid>
             </Grid>
-            <Button Name="Btn_sound" Click="btn_Off" Height="20" Width="20" Canvas.Right="2">
+            <Button Style="{DynamicResource ButtonStyle}" Name="Btn_sound" Click="btn_Off" Height="20" Width="20" Canvas.Right="2">
                 <Image Source="Grafik/noSound.png" Stretch="Fill"></Image>
             </Button>
 
-            <Button x:Name="DiceRoll" Click="diceRoll" Width="50" Height="20" Canvas.Right="25" Canvas.Top="150">Roll Dice</Button>
-            <Button Name="menu_button" MouseEnter="Mouse_enter_menu" MouseLeave="Mouse_leave_Menu" Height="20" Width="50" Canvas.Top="150" Canvas.Left="65" Click="menu_action">Menu</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="DiceRoll" Click="diceRoll" Width="50" Height="20" Canvas.Right="25" Canvas.Top="150">Roll Dice</Button>
+
+            <Button Style="{DynamicResource ButtonStyle}" Name="menu_button" MouseEnter="Mouse_enter_menu" MouseLeave="Mouse_leave_Menu" Height="20" Width="50" Canvas.Top="150" Canvas.Left="65" Click="menu_action">Menu</Button>
         </Canvas>
 
         <Grid Name="menuGrid" Width="490" Height="320">
             <UniformGrid Rows="5" Columns="1" Height="200" Width="100">
-                <Button Name="Resume" Click="resume_game">Resume</Button>
-                <Button Name="NewGame" Click="new_game">New Game</Button>
-                <Button Name="Exit" Click="exit_game">Exit</Button>
+                <Button Style="{DynamicResource ButtonStyle}" Name="Resume" Click="resume_game">Resume</Button>
+                <Button Style="{DynamicResource ButtonStyle}" Name="NewGame" Click="new_game">New Game</Button>
+                <Button Style="{DynamicResource ButtonStyle}" Name="Exit" Click="exit_game">Exit</Button>
             </UniformGrid>
         </Grid>
     </Grid>

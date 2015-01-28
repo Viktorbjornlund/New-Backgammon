@@ -22,7 +22,6 @@ namespace Backgammon
         Ellipse _pieceSelected = null;
         Point _posOfMouseOnHit;
         Point _posOfEllipseOnHit;
-        Brush strokeColor;
         Model model = new Model();
         Player black = new Player();
         Player white = new Player();
@@ -66,7 +65,7 @@ namespace Backgammon
                 Canvas.SetLeft(_pieceSelected, _posOfEllipseOnHit.X);
                 Canvas.SetTop(_pieceSelected, _posOfEllipseOnHit.Y);
                 _pieceSelected.Effect = null;
-                _pieceSelected.Stroke = strokeColor;
+                _pieceSelected.Stroke = Brushes.Gray;
                 _pieceSelected = null;
             }
         } // DeActive
@@ -128,7 +127,7 @@ namespace Backgammon
                             d2 = 23 - (i + dice2);
                             d3 = 23 - (i + dice1 + dice2);
                         }
-                        if ((d3 >= 0 && inactivePlayer._laces[d3] <= 1) || (d1 >= 0 && inactivePlayer._laces[d1] <= 1) || (d2 >= 0 && inactivePlayer._laces[d2] <= 1))
+                        if ((d1 >= 0 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && inactivePlayer._laces[d2] <= 1 && dice2 != 0))
                         {
                             Point p;
                             if (activePlayer._laces[i] > 5)
@@ -222,9 +221,21 @@ namespace Backgammon
 
         private void lightup_polygons( int i )
         {
+            if (activePlayer == black)
+            {
+                d1 = i - dice1;
+                d2 = i - dice2;
+                d3 = i - dice1 - dice2;
+            }
+            else
+            {
+                d1 = i + dice1;
+                d2 = i + dice2;
+                d3 = i + dice1 + dice2;
+            }
             if (dice1 != 0 || dice2 != 0)
             {
-                if (d3 >= 0 && inactivePlayer._laces[d3] <= 1)
+                if (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1)
                 {
                     polygons[d3].Fill = Brushes.Yellow;
                 }
@@ -233,7 +244,7 @@ namespace Backgammon
                 else if (activePlayer._goalReady && (d3) < -1)
                     homeGrid.Background = Brushes.Red;
 
-                if (d1 >= 0 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
+                if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
                 {
                     polygons[d1].Fill = Brushes.Yellow;
                 }
@@ -242,7 +253,7 @@ namespace Backgammon
                 else if (activePlayer._goalReady && (d3) < -1)
                     homeGrid.Background = Brushes.Red;
 
-                if (d2 >= 0 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
+                if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
                 {
                     polygons[d2].Fill = Brushes.Yellow;
                 }
@@ -317,6 +328,7 @@ namespace Backgammon
 
             if (_pieceSelected == null)
             {
+                start = 0;
                 Point pt = e.GetPosition( theCanvas );
                 HitTestResult hr = VisualTreeHelper.HitTest( theCanvas, pt );
                 Object obj = hr.VisualHit;
@@ -585,9 +597,14 @@ namespace Backgammon
                     theCanvas.Children.Remove(_piece);
                 }
             }
+            for (int i = 0; i < 24; i++)
+            {
+                black._laces[i] = 0;
+                white._laces[i] = 0;
+            }
         } // remove_pieces
 
-        private void resume_game(object sender, RoutedEventArgs e)
+        private void resume_game( object sender, RoutedEventArgs e )
         {
             bool noEllipse = true;
             int _totalChildren = theCanvas.Children.Count - 1;
@@ -631,11 +648,14 @@ namespace Backgammon
             blackTurnArrow.Opacity = 1;
             whiteTurnArrow.Opacity = 0;
 
+            lightdown_polygons();
+
             remove_pieces();
             insert_pieces();
             activePlayer = black;
             inactivePlayer = white;
             homeGrid = blackHome;
+            start = 0;
         } // new_game
 
         private void exit_game(object sender, RoutedEventArgs e)
