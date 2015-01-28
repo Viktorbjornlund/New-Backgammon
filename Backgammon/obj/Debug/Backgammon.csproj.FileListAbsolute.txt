@@ -1,0 +1,179 @@
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\background.png
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Tim\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.lref
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.dll
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.baml
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GameBoard.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GameBoard.baml
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-background1.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\metal-dark.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\metal-light.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-border.jpg
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-border2.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-background1.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\metal-dark.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\metal-light.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-border.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\wood-border2.jpg
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.dll
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.baml
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GameBoard.g.cs
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.lref
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\GameBoard.baml
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Sevag\Documents\GitHub\Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\wood-background1.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\metal-dark.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\metal-light.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\wood-border.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Grafik\wood-border2.jpg
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\App.baml
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\GameBoard.g.cs
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\App.g.cs
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon_MarkupCompile.lref
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\GameBoard.baml
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Viktor\Documents\Backgammon - Kopia\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\wood-background1.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\metal-dark.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\metal-light.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\wood-border.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Grafik\wood-border2.jpg
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.dll
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\App.baml
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\GameBoard.g.cs
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.lref
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\GameBoard.baml
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Axel Nyberg\Documents\backamon bakcup\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Ljud\ClickOn.wav
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Ljud\musik.wav
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Ljud\roll.wav
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\noSound.png
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon\bin\Debug\Grafik\sound.png
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\noSound.png
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\piece-black.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\piece-white.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\sound.png
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\wood-background1.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\metal-dark.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\metal-light.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\wood-border.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Grafik\wood-border2.jpg
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Ljud\ClickOn.wav
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Ljud\musik.wav
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Ljud\roll.wav
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Backgammon.exe.config
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\Backgammon\Backgammon\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\App.baml
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\GameBoard.g.cs
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\MainWindow.g.cs
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\App.g.cs
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon_Content.g.cs
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon_MarkupCompile.lref
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\GameBoard.baml
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\MainWindow.baml
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.g.resources
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.Properties.Resources.resources
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.exe
+C:\Users\Viktor\Documents\Backgammon\Backgammon\obj\Debug\Backgammon.pdb

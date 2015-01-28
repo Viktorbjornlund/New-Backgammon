@@ -1,0 +1,22 @@
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.dll
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csprojResolveAssemblyReference.cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\ButtonStyle.baml
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Theme.baml
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme_MarkupCompile.cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.g.resources
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.Properties.Resources.resources
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csproj.GenerateResource.Cache
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.dll
+C:\Users\Axel Nyberg\Documents\GitHub\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.pdb
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\bin\Debug\Backgammon.Theme.pdb
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\ButtonStyle.baml
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Theme.baml
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme_MarkupCompile.cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.g.resources
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.Properties.Resources.resources
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.pdb

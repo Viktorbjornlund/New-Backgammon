@@ -1,0 +1,14 @@
+﻿<Window x:Class="Backgammon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Backgammon"
+        Title="Rex Backgammon">
+    <Border BorderThickness="10">
+        <Border.BorderBrush>
+            <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
+        </Border.BorderBrush>
+        <Viewbox Stretch="Fill">
+            <local:GameBoard/>
+        </Viewbox>
+    </Border>
+</Window>
