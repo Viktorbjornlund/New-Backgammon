@@ -6,273 +6,279 @@
              xmlns:local="clr-namespace:Backgammon"
              mc:Ignorable="d" 
              d:DesignHeight="320" d:DesignWidth="490">
-    <Grid>
-        <Canvas x:Name="theCanvas" MouseDown="Canvas_MouseDown_1" Height="320" Width="490">
-            <Canvas.Background>
-                <ImageBrush ImageSource="Grafik/wood-background2.jpg" Stretch="Fill"/>
-            </Canvas.Background>
-            <Grid  Width="490" Height="320">
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="390"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Name="mainGrid" Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="180"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="140"/>
-                        <RowDefinition/>
-                        <RowDefinition Height="140"/>
-                    </Grid.RowDefinitions>
-
-                    <UniformGrid Rows="1" Columns="6" Grid.Column="0" Grid.Row="0">
-                        <Grid Name="g11">
-                                <Polygon Name="p11" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g10">
-                                <Polygon Name="p10" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g9">
-                                <Polygon Name="p9" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g8">
-                                <Polygon Name="p8" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g7">
-                                <Polygon Name="p7" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g6">
-                                <Polygon Name="p6" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                    </UniformGrid>
-                    <UniformGrid Rows="1" Columns="6" Grid.Column="2" Grid.Row="0">
-                        <Grid Name="g5">
-                                <Polygon Name="p5" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g4">
-                                <Polygon Name="p4" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g3">
-                                <Polygon Name="p3" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g2">
-                                <Polygon Name="p2" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g1">
-                                <Polygon Name="p1" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g0">
-                                <Polygon Name="p0" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                    </UniformGrid>
-                    <UniformGrid Rows="1" Columns="6" Grid.Column="0" Grid.Row="2">
-                        <Grid Name="g12">
-                                <Polygon Name="p12" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g13">
-                                <Polygon Name="p13" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g14">
-                                <Polygon Name="p14" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g15">
-                                <Polygon Name="p15" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g16">
-                                <Polygon Name="p16" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g17">
-                                <Polygon Name="p17" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                    </UniformGrid>
-                    <UniformGrid Rows="1" Columns="6" Grid.Column="2" Grid.Row="2">
-                        <Grid Name="g18">
-                                <Polygon Name="p18" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g19">
-                                <Polygon Name="p19" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g20">
-                                <Polygon Name="p20" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g21">
-                                <Polygon Name="p21" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g22">
-                                <Polygon Name="p22" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                        <Grid Name="g23">
-                                <Polygon Name="p23" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
-                                    <Polygon.Fill>
-                                        <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
-                                    </Polygon.Fill>
-                                </Polygon>
-                            </Grid>
-                    </UniformGrid>
-                    <UniformGrid Grid.Column="1" Grid.Row="0">
-                        <Grid Name="blackOut" Margin="0,50">
-                            <Grid.Background>
-                                <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
-                            </Grid.Background>
-                        </Grid>
-                        
-                    </UniformGrid>
-                    <UniformGrid Grid.Column="1" Grid.Row="2">
-                        <Grid Name="whiteOut" Margin="0,50">
-                            <Grid.Background>
-                                <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
-                            </Grid.Background>
-                        </Grid>
-                    </UniformGrid>
-                    <UniformGrid Grid.Column="0" Grid.Row="1">
-                        <Grid>
-                            <Image Name="whiteTurnArrow" Source="Grafik/u-arrow.png" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            <Image Name="blackTurnArrow" Source="Grafik/u-arrow.png" RenderTransformOrigin="0.5,0.5" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center">
-                                <Image.RenderTransform>
-                                    <ScaleTransform ScaleY="-1"/>
-                                </Image.RenderTransform>
-                            </Image>
-                        </Grid>
-                    </UniformGrid>
-                    <UniformGrid Grid.Column="2" Grid.Row="1">
-                        <Grid>
-                        </Grid>
-                    </UniformGrid>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <Grid Name="whiteHome" Width="50" Height="120" Margin="10" VerticalAlignment="Bottom" >
-                        <Grid.Background>
-                            <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
-                        </Grid.Background>
-                        <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center">Player 2</Label>
-                    </Grid>
-                    <Grid Name="blackHome" Width="50" Height="120" Margin="10" VerticalAlignment="Top">
-                        <Grid.Background>
-                            <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
-                        </Grid.Background>
-                        <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center">Player 1</Label>
-                    </Grid>
-
-                    <Grid Height="50">
+    
+    <Grid>        
+                <Canvas x:Name="theCanvas" MouseDown="Canvas_MouseDown_1" Height="320" Width="490">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="Grafik/wood-background2.jpg" Stretch="Fill"/>
+                    </Canvas.Background>
+                    <Grid  Width="490" Height="320">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50*"></ColumnDefinition>
-                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                            <ColumnDefinition Width="390"/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        
-                        <UniformGrid Grid.Column="0">
-                            <Image Name="DiceView1" Source="Grafik\Dice1.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
-                        </UniformGrid>
-                        <UniformGrid Grid.Column="1">
-                            <Image Name="DiceView2" Source="Grafik\Dice5.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
-                        </UniformGrid>
+                        <Grid Name="mainGrid" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="180"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="140"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="140"/>
+                            </Grid.RowDefinitions>
+                            <UniformGrid Rows="1" Columns="6" Grid.Column="0" Grid.Row="0">
+                                <Grid Name="g11">
+                                    <Polygon Name="p11" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g10">
+                                    <Polygon Name="p10" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g9">
+                                    <Polygon Name="p9" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g8">
+                                    <Polygon Name="p8" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g7">
+                                    <Polygon Name="p7" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g6">
+                                    <Polygon Name="p6" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Rows="1" Columns="6" Grid.Column="2" Grid.Row="0">
+                                <Grid Name="g5">
+                                    <Polygon Name="p5" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g4">
+                                    <Polygon Name="p4" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g3">
+                                    <Polygon Name="p3" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g2">
+                                    <Polygon Name="p2" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g1">
+                                    <Polygon Name="p1" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g0">
+                                    <Polygon Name="p0" Points="0, 0 0, 0 15, 125 30, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Rows="1" Columns="6" Grid.Column="0" Grid.Row="2">
+                                <Grid Name="g12">
+                                    <Polygon Name="p12" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g13">
+                                    <Polygon Name="p13" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g14">
+                                    <Polygon Name="p14" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g15">
+                                    <Polygon Name="p15" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g16">
+                                    <Polygon Name="p16" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g17">
+                                    <Polygon Name="p17" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Rows="1" Columns="6" Grid.Column="2" Grid.Row="2">
+                                <Grid Name="g18">
+                                    <Polygon Name="p18" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g19">
+                                    <Polygon Name="p19" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g20">
+                                    <Polygon Name="p20" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g21">
+                                    <Polygon Name="p21" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g22">
+                                    <Polygon Name="p22" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-dark.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                                <Grid Name="g23">
+                                    <Polygon Name="p23" Points="15, 0 0, 125 30, 125 15, 0" Stretch="Fill">
+                                        <Polygon.Fill>
+                                            <ImageBrush ImageSource="Grafik/metal-light.jpg"/>
+                                        </Polygon.Fill>
+                                    </Polygon>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="1" Grid.Row="0">
+                                <Grid Name="blackOut" Margin="0,50">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
+                                    </Grid.Background>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="1" Grid.Row="2">
+                                <Grid Name="whiteOut" Margin="0,50">
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
+                                    </Grid.Background>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="0" Grid.Row="1">
+                                <Grid>
+                                    <Image Name="whiteTurnArrow" Source="Grafik/u-arrow.png" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <Image Name="blackTurnArrow" Source="Grafik/u-arrow.png" RenderTransformOrigin="0.5,0.5" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                        <Image.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"/>
+                                        </Image.RenderTransform>
+                                    </Image>
+                                </Grid>
+                            </UniformGrid>
+                            <UniformGrid Grid.Column="2" Grid.Row="1">
+                                <Grid>
+                                </Grid>
+                            </UniformGrid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+
+                            <Grid Name="whiteHome" Width="50" Height="120" Margin="10" VerticalAlignment="Bottom"  >
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="8" Direction="315" ShadowDepth="4"/>
+                                </Grid.Effect>
+                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center">Player 2</Label>
+
+
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
+                                </Grid.Background>
+
+                            </Grid>
+
+                            <Grid Name="blackHome" Width="50" Height="120" Margin="10" VerticalAlignment="Top">
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="8" Direction="315" ShadowDepth="4"/>
+                                </Grid.Effect>
+                                <Grid.Background>
+                                    <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
+                                </Grid.Background>
+                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center">Player 1</Label>
+                            </Grid>
+                            <Grid Height="50">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <UniformGrid Grid.Column="0">
+                                    <Image Name="DiceView1" Source="Grafik\Dice1.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                                </UniformGrid>
+                                <UniformGrid Grid.Column="1">
+                                    <Image Name="DiceView2" Source="Grafik\Dice5.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                                </UniformGrid>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Grid>
-            <Button Style="{DynamicResource ButtonStyle}" Name="Btn_sound" Click="btn_Off" Height="20" Width="20" Canvas.Right="2">
-                <Image Source="Grafik/noSound.png" Stretch="Fill"></Image>
-            </Button>
-
-            <Button Style="{DynamicResource ButtonStyle}" x:Name="DiceRoll" Click="diceRoll" Width="50" Height="20" Canvas.Right="25" Canvas.Top="150">Roll Dice</Button>
-            <Button Style="{DynamicResource ButtonStyle}" Name="menu_button" MouseEnter="Mouse_enter_menu" MouseLeave="Mouse_leave_Menu" Height="20" Width="50" Canvas.Top="150" Canvas.Left="65" Click="menu_action">Menu</Button>
-        </Canvas>
-
+                    <Button Style="{DynamicResource ButtonStyle}" Name="Btn_sound" Click="btn_Off" Height="20" Width="20" Canvas.Right="2">
+                        <Image Source="Grafik/noSound.png" Stretch="Fill"></Image>
+                    </Button>
+                    <Button Style="{DynamicResource ButtonStyle}" x:Name="DiceRoll" Click="diceRoll" Width="50" Height="20" Canvas.Right="25" Canvas.Top="150">Roll Dice</Button>
+                    <Button Style="{DynamicResource ButtonStyle}" Name="menu_button" MouseEnter="Mouse_enter_menu" MouseLeave="Mouse_leave_Menu" Height="20" Width="50" Canvas.Top="150" Canvas.Left="65" Click="menu_action">Menu</Button>
+                </Canvas>
+            
         <Grid Name="menuGrid" Width="490" Height="320">
             <UniformGrid Rows="5" Columns="1" Height="200" Width="100">
                 <Button Style="{DynamicResource ButtonStyle}" Name="Resume" Click="resume_game">Resume</Button>
@@ -280,5 +286,16 @@
                 <Button Style="{DynamicResource ButtonStyle}" Name="Exit" Click="exit_game">Exit</Button>
             </UniformGrid>
         </Grid>
+        <Border Background="Transparent" BorderBrush="DarkGray" BorderThickness="0" ClipToBounds="True" IsHitTestVisible="False">
+            <Border Background="Transparent" BorderBrush="Black" BorderThickness="10" Margin="-11" IsHitTestVisible="False">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+                </Border.Effect>
+                <Grid Height="320" Width="490" IsHitTestVisible="False" IsEnabled="False">
+
+                </Grid>
+            </Border>
+        </Border>
+
     </Grid>
 </UserControl>

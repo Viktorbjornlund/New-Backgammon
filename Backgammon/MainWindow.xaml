@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Backgammon"
         Title="Rex Backgammon">
-    <Border BorderThickness="10">
+    <Border BorderThickness="10" >
         <Border.BorderBrush>
             <ImageBrush ImageSource="Grafik/wood-border2.jpg"/>
         </Border.BorderBrush>
