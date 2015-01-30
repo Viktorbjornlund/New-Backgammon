@@ -16,23 +16,16 @@ namespace Backgammon
         public Model()
         { 
             // sparar x kordinater
-            pointX[0] = 363;
-            pointX[1] = 333;
-            pointX[2] =303;
-            pointX[3] =273;
-            pointX[4] =243;
-            pointX[5] =213;
-            pointX[6] =153;
-            pointX[7] =123;
-            pointX[8] =93;
-            pointX[9] =63;
-            pointX[10] = 33;
-            pointX[11] = 3;
-            int b = 12;
-            for (int i = 11; i >=0; i--)
+            for (int i = 0; i < 24; i++)
             {
-                pointX[b] = pointX[i];
-                b++;
+                if (i < 6)
+                    pointX[i] = 363 - (30 * i);
+                else if (i > 5 && i < 12)
+                    pointX[i] = 333 - (30 * i);
+                else if (i > 11 && i < 18)
+                    pointX[i] = 3 + (30 * (i % 12));
+                else
+                    pointX[i] = 33 + (30 * (i % 12));
             }
         }
 

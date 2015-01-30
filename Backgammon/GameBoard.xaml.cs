@@ -313,13 +313,17 @@ namespace Backgammon
                     DiceView2.Effect = blur;
                 }
                 //Canvas.SetLeft( _pieceSelected, model.pointX[move] );
-                int spacing = 24;
+                double spacing = 24.0;
 
                 if (activePlayer._laces[move] > 5)
                 {
                     if (move < 12)
+                    {
                         //Canvas.SetTop( _pieceSelected, spacing * 4 );
                         MovePiece( _pieceSelected, model.pointX[move], spacing * 4 );
+                        
+                        //_pieceSelected.SetValue(Canvas.TopProperty, model.pointX[move]);
+                    }
                     else
                         //Canvas.SetTop( _pieceSelected, 320 - spacing * 5 );
                         MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * 5 );
@@ -328,18 +332,23 @@ namespace Backgammon
                     Panel panel = (Panel)numberOfPieces.Parent;
                     theCanvas.Children.Remove( numberOfPieces );
                     theCanvas.Children.Add( numberOfPieces );
-                    numberOfPieces.Height = 20;
-                    numberOfPieces.Width = 20;
-                    Canvas.SetLeft( numberOfPieces, Canvas.GetLeft( _pieceSelected ) );
-                    Canvas.SetTop( numberOfPieces, Canvas.GetTop( _pieceSelected ) );
+                    numberOfPieces.Height = 24;
+                    numberOfPieces.Width = 24;
+                    numberOfPieces.TextAlignment = TextAlignment.Center;
+                    numberOfPieces.IsHitTestVisible = false;
                     numberOfPieces.Foreground = Brushes.Red;
                     numberOfPieces.Text = activePlayer._laces[move].ToString();
+                    Canvas.SetLeft( numberOfPieces, Canvas.GetLeft( _pieceSelected ) );
+                    Canvas.SetTop( numberOfPieces, Canvas.GetTop( _pieceSelected ) );
+                    
                 }
                 else
                 {
                     if (move < 12)
+                    {
                         //Canvas.SetTop( _pieceSelected, spacing * (activePlayer._laces[move] - 1) );
                         MovePiece( _pieceSelected, model.pointX[move], spacing * (activePlayer._laces[move] - 1) );
+                    }
                     else
                         //Canvas.SetTop( _pieceSelected, 320 - spacing * activePlayer._laces[move] );
                         MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * activePlayer._laces[move] );
@@ -747,19 +756,23 @@ namespace Backgammon
             menuGrid.Opacity = 1;
         } // menu_action
 
-        private static void MovePiece( Ellipse el, int newX, int newY )
+        private void MovePiece( Ellipse el, double newX, double newY )
         {
             double top = Canvas.GetTop( el );
             double left = Canvas.GetLeft( el );
-            TranslateTransform trans = new TranslateTransform();
-            el.RenderTransform = trans;
-            DoubleAnimation anim1 = new DoubleAnimation( 0, newX - left, TimeSpan.FromSeconds( 1.5 ) );
-            DoubleAnimation anim2 = new DoubleAnimation( 0, newY - top, TimeSpan.FromSeconds( 1.5 ) );
-            //ElasticEase bounce = new ElasticEase();
-            //bounce.EasingMode = EasingMode.EaseIn;
-            //anim2.EasingFunction = bounce;
-            trans.BeginAnimation( TranslateTransform.XProperty, anim1 );
-            trans.BeginAnimation( TranslateTransform.YProperty, anim2 );
+            var SB = new Storyboard
+            {
+                Duration = TimeSpan.FromSeconds(1.5)
+            };
+            DoubleAnimation anim1 = new DoubleAnimation( left, newX, TimeSpan.FromSeconds( 1.5 ) );
+            DoubleAnimation anim2 = new DoubleAnimation( top, newY, TimeSpan.FromSeconds( 1.5 ) );
+            Storyboard.SetTarget(anim1, el);
+            Storyboard.SetTargetProperty(anim1, new PropertyPath(Canvas.LeftProperty));
+            SB.Children.Add(anim1);
+            Storyboard.SetTarget(anim2, el);
+            Storyboard.SetTargetProperty(anim2, new PropertyPath(Canvas.TopProperty));
+            SB.Children.Add(anim2);
+            el.BeginStoryboard( SB );
         } // MovePiece Animation
 
         private void playMusic()
