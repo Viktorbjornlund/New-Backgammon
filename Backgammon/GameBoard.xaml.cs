@@ -334,11 +334,21 @@ namespace Backgammon
                 {
                     activePlayer._out--;
                     activePlayer._laces[move]++;
-                    
-                    if (activePlayer._out > 1 && activePlayer == black)
-                        setNumber( 183, 252, activePlayer._out );
-                    else if (activePlayer._out > 1 && activePlayer == white)
-                        setNumber( 183, 92, inactivePlayer._out );
+
+                    if (activePlayer == black)
+                    {
+                        if (activePlayer._out > 1)
+                            setNumber( 183, 252, activePlayer._out );
+                        else
+                            removeNumber( 183, 252 );
+                    }
+                    else
+                    {
+                        if (activePlayer._out > 1)
+                            setNumber( 183, 92, activePlayer._out );
+                        else
+                            removeNumber( 183, 92 );
+                    }
                 }
 
                 if (move == d1 && dice1 != 0)
