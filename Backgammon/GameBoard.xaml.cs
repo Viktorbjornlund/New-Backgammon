@@ -30,14 +30,14 @@ namespace Backgammon
         Polygon[] polygons;
         Grid homeGrid;
 
+        Storyboard SB;
+
         private int dice1, dice2, start;
         private int d1, d2, d3;
         int _totalChildren = 0;
 
         System.Media.SoundPlayer music = new System.Media.SoundPlayer(@"Ljud\musik.wav");
         bool soundOn;
-
-        
 
         ImageBrush piece_light = new ImageBrush();
         ImageBrush piece_dark = new ImageBrush();
@@ -70,23 +70,30 @@ namespace Backgammon
             }
         } // DeActive
 
+        void MoveFinished( Object sender, EventArgs args )
+        {
+            lightup_pieces();
+        }
+
         public GameBoard()
         {
             App.Current.Activated += Active;
             App.Current.Deactivated += InActive;
-
             polygon_light.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-light.jpg", UriKind.Relative ) );
             polygon_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-dark.jpg", UriKind.Relative ) );
             piece_light.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-white.jpg", UriKind.Relative ) );
             piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.jpg", UriKind.Relative ) );
             home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/wood-border2.jpg", UriKind.Relative ) );
+            SB = new Storyboard();
             SE.BlurRadius = 3;
             SE.ShadowDepth = 0;
             SE_light.BlurRadius = 10;
             SE_light.ShadowDepth = 0;
             SE_light.Color = Color.FromRgb( 255, 255, 235 );
             playMusic();
+            
             InitializeComponent();
+            SB.Completed += new EventHandler( MoveFinished );
             menuGrid.Opacity = 1;
             menuGrid.IsEnabled = true;
             theCanvas.Opacity = 1;
@@ -97,6 +104,7 @@ namespace Backgammon
             blackTurnArrow.Opacity = 0;
             whiteTurnArrow.Opacity = 0;
             polygons = new Polygon[] { p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23 };
+            
         } // GAMEBOARD
 
         private void lightup_pieces()
@@ -325,54 +333,71 @@ namespace Backgammon
                 {
                     if (move < 12)
                     {
-                        MovePiece( _pieceSelected, model.pointX[move], spacing * 4, false);
+                        MovePiece( _pieceSelected, model.pointX[move], spacing * 4 );
                         removeNumber( model.pointX[move], 120 );
-                        setNumber( model.pointX[move], 120, move );
-                        //Canvas.SetLeft( numberOfPieces, model.pointX[move] );
-                        //Canvas.SetTop( numberOfPieces, spacing * 4 );
+                        setNumber( model.pointX[move], 120, activePlayer._laces[move] );
                     }
                     else
                     {
-                        MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * 5, false);
-                        removeNumber( model.pointX[move], 180 );
-                        setNumber( model.pointX[move], 180, move );
-                        //Canvas.SetLeft( numberOfPieces, model.pointX[move] );
-                        //Canvas.SetTop( numberOfPieces, 320 - spacing * 5 );
+                        MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * 5 );
+                        removeNumber( model.pointX[move], 170 );
+                        setNumber( model.pointX[move], 170, activePlayer._laces[move] );
                     }
                 }
                 else
                 {
                     if (move < 12)
                     {
-                        MovePiece( _pieceSelected, model.pointX[move], spacing * (activePlayer._laces[move] - 1), false );
-                        if (activePlayer._laces[start] == 5)
-                        {
-                            removeNumber( model.pointX[start], 120 );
-                        }
+                        MovePiece( _pieceSelected, model.pointX[move], spacing * (activePlayer._laces[move] - 1) );
                     }
                     else
                     {
-                        MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * activePlayer._laces[move], false );
-                        if (activePlayer._laces[start] == 5)
-                        {
-                            removeNumber( model.pointX[start], 180 );
-                        }
+                        MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * activePlayer._laces[move] );
+                    }
+                }
+                if (activePlayer._laces[start] > 5)
+                {
+                    if (start < 12)
+                    {
+                        removeNumber( model.pointX[start], 120 );
+                        setNumber( model.pointX[start], 120, activePlayer._laces[start] );
+                    }
+                    else
+                    {
+                        removeNumber( model.pointX[start], 170 );
+                        setNumber( model.pointX[start], 170, activePlayer._laces[start] );
+                    }
+                }
+                else if (activePlayer._laces[start] == 5)
+                {
+                    if (start < 12)
+                    {
+                        removeNumber( model.pointX[start], 120 );
+                    }
+                    else
+                    {
+                        removeNumber( model.pointX[start], 170 );
                     }
                 }
                 homeGrid.Background = home_image;
+            }
+            else
+            {
+                lightup_pieces();
             }
         } // moveToPolygon
 
         private void setNumber(double newX, double newY, int i)
         {
             TextBlock numberOfPieces = new TextBlock();
-            numberOfPieces.Height = 20;
-            numberOfPieces.Width = 20;
+            numberOfPieces.Height = 24;
+            numberOfPieces.Width = 24;
             numberOfPieces.FontSize = 20;
             numberOfPieces.TextAlignment = TextAlignment.Center;
             numberOfPieces.IsHitTestVisible = false;
             numberOfPieces.Foreground = Brushes.Yellow;
-            numberOfPieces.Text = activePlayer._laces[i].ToString();
+            numberOfPieces.Effect = SE;
+            numberOfPieces.Text = i.ToString();
             Canvas.SetLeft( numberOfPieces, newX );
             Canvas.SetTop( numberOfPieces, newY );
             theCanvas.Children.Remove( numberOfPieces );
@@ -409,45 +434,46 @@ namespace Backgammon
                         {
                             if (activePlayer == black && el.Fill == piece_light)
                             {
-                                //Canvas.SetLeft( el, 183 );
-                                //Canvas.SetTop( el, 228 );
-                                MovePiece( el, 183, 68, false);
+                                MovePiece( el, 183, 68);
                                 white._laces[i]--;
                                 white._out++;
-                                //el.Stroke = Brushes.Gray;
                             }
                             else if (activePlayer == white && el.Fill == piece_dark)
                             {
-                                //Canvas.SetLeft( el, 183 );
-                                //Canvas.SetTop( el, 68 );
-                                MovePiece( el, 183, 228, false);
+                                MovePiece( el, 183, 228);
                                 black._laces[i]--;
                                 black._out++;
-                                //el.Stroke = Brushes.Gray;
                             }
                         }
                         else if (i > 11 && Canvas.GetLeft( el ) == model.pointX[i] && Canvas.GetTop( el ) == 296)
                         {
                             if (activePlayer == black && el.Fill == piece_light)
                             {
-                                //Canvas.SetLeft( el, 183 );
-                                //Canvas.SetTop( el, 228 );
-                                MovePiece( el, 183, 228, false);
+                                MovePiece( el, 183, 68);
                                 white._laces[i]--;
                                 white._out++;
-                                //el.Stroke = Brushes.Gray;
                             }
                             else if (activePlayer == white && el.Fill == piece_dark)
                             {
-                                //Canvas.SetLeft( el, 183 );
-                                //Canvas.SetTop( el, 68 );
-                                MovePiece( el, 183, 68, false);
+                                MovePiece( el, 183, 228);
                                 black._laces[i]--;
                                 black._out++;
-                                //el.Stroke = Brushes.Gray;
                             }
                         }
                     }
+                }
+            }
+            if (inactivePlayer._out > 1)
+            {
+                if (inactivePlayer == black)
+                {
+                    removeNumber( 183, 228 );
+                    setNumber( 183, 228, inactivePlayer._out );
+                }
+                else
+                {
+                    removeNumber( 183, 68 );
+                    setNumber( 183, 68, inactivePlayer._out );
                 }
             }
         } // putOut
@@ -581,8 +607,8 @@ namespace Backgammon
                 _pieceSelected = null;
 
                 lightdown_polygons();
-                lightdown_pieces();
-                lightup_pieces();
+                //lightdown_pieces();
+                //lightup_pieces();
                 
             }
         } // Mouse Down
@@ -655,28 +681,28 @@ namespace Backgammon
                 {
                     //Canvas.SetLeft(el, 3);
                     //Canvas.SetTop(el, rad * (i % 5));
-                    MovePiece( el, 3, rad * (i % 5), true);
+                    Layout( el, 3, rad * (i % 5));
                     white._laces[11] = 5;
                 }
                 else if (i < 7)
                 {
                     //Canvas.SetLeft(el, 363);
                     //Canvas.SetTop(el, rad * (i % 5));
-                    MovePiece( el, 363, rad * (i % 5), true);
+                    Layout( el, 363, rad * (i % 5));
                     white._laces[0] = 2;
                 }
                 else if (i < 10)
                 {
                     //Canvas.SetLeft(el, 123);
                     //Canvas.SetTop(el, 248 + (rad * (i % 7)));
-                    MovePiece( el, 123, 248 + (rad * (i % 7)), true);
+                    Layout( el, 123, 248 + (rad * (i % 7)));
                     white._laces[16] = 3;
                 }
                 else
                 {
                     //Canvas.SetLeft(el, 213);
                     //Canvas.SetTop(el, 200 + (rad * (i % 5)));
-                    MovePiece( el, 213, 200 + (rad * (i % 5)), true);
+                    Layout( el, 213, 200 + (rad * (i % 5)));
                     white._laces[18] = 5;
                 }
             }
@@ -688,28 +714,28 @@ namespace Backgammon
                 {
                     //Canvas.SetLeft(el, 3);
                     //Canvas.SetTop(el, 200 + (rad * (i % 5)));
-                    MovePiece( el, 3, 200 + (rad * (i % 5)), true);
+                    Layout( el, 3, 200 + (rad * (i % 5)));
                     black._laces[12] = 5;
                 }
                 else if (i < 7)
                 {
                     //Canvas.SetLeft(el, 363);
                     //Canvas.SetTop(el, 272 + (rad * (i % 5)));
-                    MovePiece( el, 363, 272 + (rad * (i % 5)), true);
+                    Layout( el, 363, 272 + (rad * (i % 5)));
                     black._laces[23] = 2;
                 }
                 else if (i < 10)
                 {
                     //Canvas.SetLeft(el, 123);
                     //Canvas.SetTop(el, rad * (i % 7));
-                    MovePiece( el, 123, rad * (i % 7), true);
+                    Layout( el, 123, rad * (i % 7));
                     black._laces[7] = 3;
                 }
                 else
                 {
                     //Canvas.SetLeft(el, 213);
                     //Canvas.SetTop(el, rad * (i % 5));
-                    MovePiece( el, 213, rad * (i % 5), true);
+                    Layout( el, 213, rad * (i % 5));
                     black._laces[5] = 5;
                 }
             }
@@ -814,41 +840,52 @@ namespace Backgammon
             menuGrid.Opacity = 1;
         } // menu_action
 
-        private void MovePiece( Ellipse el, double newX, double newY, bool bounce)
+        private void Layout( Ellipse el, double newX, double newY )
+        {
+            double top = Canvas.GetTop( el );
+            double left = Canvas.GetLeft( el );
+            Storyboard layout = new Storyboard();
+
+            DoubleAnimation anim1 = new DoubleAnimation( left, newX, TimeSpan.FromSeconds( 1 ) );
+            DoubleAnimation anim2 = new DoubleAnimation( top, newY, TimeSpan.FromSeconds( 1 ) );
+
+            ElasticEase ease = new ElasticEase();
+            ease.EasingMode = EasingMode.EaseOut;
+            ease.Oscillations = 3;
+            ease.Springiness = 15;
+            anim2.Duration = TimeSpan.FromSeconds( 0 );
+            anim1.Duration = TimeSpan.FromSeconds( 2 );
+            anim1.EasingFunction = ease;
+
+            Storyboard.SetTarget( anim1, el );
+            Storyboard.SetTargetProperty( anim1, new PropertyPath( Canvas.LeftProperty ) );
+            layout.Children.Add( anim1 );
+            Storyboard.SetTarget( anim2, el );
+            Storyboard.SetTargetProperty( anim2, new PropertyPath( Canvas.TopProperty ) );
+            layout.Children.Add( anim2 );
+            layout.Begin();
+        }
+
+        private void MovePiece( Ellipse el, double newX, double newY)
         {
             double top = Canvas.GetTop( el );
             double left = Canvas.GetLeft( el );
 
-            var SB = new Storyboard();
-            SB.Duration = TimeSpan.FromSeconds( 2 );
-
+            SB.Children.Clear();
+            SB.Duration = TimeSpan.FromSeconds( 1 );
+            
             DoubleAnimation anim1 = new DoubleAnimation( left, newX, TimeSpan.FromSeconds( 1 ) );
             DoubleAnimation anim2 = new DoubleAnimation( top, newY, TimeSpan.FromSeconds( 1 ) );
-            if (bounce)
-            {
-                ElasticEase ease = new ElasticEase();
-                ease.EasingMode = EasingMode.EaseOut;
-                ease.Oscillations = 3;
-                ease.Springiness = 15;
-                anim2.Duration = TimeSpan.FromSeconds(0);
-                anim1.Duration = TimeSpan.FromSeconds( 2 );
-                anim1.EasingFunction = ease;
-                //anim2.EasingFunction = ease;
-            }
+            
             Storyboard.SetTarget(anim1, el);
             Storyboard.SetTargetProperty(anim1, new PropertyPath(Canvas.LeftProperty));
             SB.Children.Add(anim1);
             Storyboard.SetTarget(anim2, el);
             Storyboard.SetTargetProperty(anim2, new PropertyPath(Canvas.TopProperty));
             SB.Children.Add(anim2);
-            el.BeginStoryboard( SB );
-            //SB.Completed += new EventHandler(MoveFinished);
+            SB.Begin();
         } // MovePiece Animation
-        //private void MoveFinished( object sender, EventArgs e )
-        //{
-        //    lightdown_pieces();
-        //    lightup_pieces();
-        //}
+        
 
         private void playMusic()
         {
