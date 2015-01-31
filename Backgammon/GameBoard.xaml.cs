@@ -107,6 +107,7 @@ namespace Backgammon
             
         } // GAMEBOARD
 
+        // lyser upp de brickor som kan flyttas
         private void lightup_pieces()
         {
             lightdown_pieces();
@@ -178,6 +179,7 @@ namespace Backgammon
             }
         } // lightup_pieces
 
+        // släcker alla brickor
         private void lightdown_pieces()
         {
             _totalChildren = theCanvas.Children.Count - 1;
@@ -191,6 +193,7 @@ namespace Backgammon
             }
         } // lightdown_pieces
 
+        // lyser upp de trianglar som den markerade brickan kan flyttas till
         private void lightup_polygons( int i )
         {
             if (activePlayer == black)
@@ -215,6 +218,7 @@ namespace Backgammon
                 homeGrid.Background = Brushes.Red;
         } // lightup_polygons
 
+        // släcker alla polygoner
         private void lightdown_polygons()
         {
             for (int i = 0; i < 24; i++)
@@ -229,6 +233,7 @@ namespace Backgammon
             }
         } // lightdown_polygons
 
+        // lyser upp de trianglar som den utspelade brickan kan flyttas till
         private void lightup_out()
         {
             if (activePlayer == black)
@@ -257,6 +262,7 @@ namespace Backgammon
             }
         } // lightup_out
 
+        // kontrollerar om spelaren kan flytta en utslagen bricka
         private bool lightup_out_possible()
         {
             if (activePlayer == black)
@@ -286,6 +292,7 @@ namespace Backgammon
             return false;
         } // lightup_out_possible
 
+        // markerar en upplyst bricka
         private void select_piece( Object obj )
         {
             Ellipse el = (Ellipse)obj;
@@ -321,6 +328,7 @@ namespace Backgammon
             }
         } // select_piece
 
+        // flyttar brickan till en triangel
         private void moveToPolygon( int move )
         {
             if (polygons[move].Fill == Brushes.Yellow)
@@ -423,6 +431,7 @@ namespace Backgammon
             }
         } // moveToPolygon
 
+        // lägger ut ett nummer på planen
         private void setNumber(double newX, double newY, int i)
         {
             removeNumber( newX, newY );
@@ -440,6 +449,7 @@ namespace Backgammon
             theCanvas.Children.Add( numberOfPieces );
         } //setNumber
 
+        // tar bort ett nummer på planen
         private void removeNumber( double oldX, double oldY)
         {
             _totalChildren = theCanvas.Children.Count - 1;
@@ -456,6 +466,7 @@ namespace Backgammon
             }
         } // removeNumber
 
+        // flyttar utslagen bricka
         private void putOut( int i )
         {
             if (black._laces[i] == 1 && white._laces[i] == 1)
@@ -565,6 +576,7 @@ namespace Backgammon
             }
         } // moveHome
 
+        // kontrollerar om spelaren är redo att flytta in i mål
         private bool moveToFinish()
         {
             int[] pos;
@@ -586,6 +598,7 @@ namespace Backgammon
             return true;
         } // moveToFinish
 
+        // musklick
         private void Canvas_MouseDown_1( object sender, MouseButtonEventArgs e )
         {
             Point pt = e.GetPosition( theCanvas );
@@ -635,18 +648,14 @@ namespace Backgammon
                 {
                     changePlayer();
                 }
-                //theCanvas.Children.Remove( _pieceSelected );
-                //theCanvas.Children.Add( _pieceSelected );
-                //_pieceSelected.Stroke = Brushes.Gray;
+
                 _pieceSelected = null;
 
                 lightdown_polygons();
-                //lightdown_pieces();
-                //lightup_pieces();
-                
             }
         } // Mouse Down
 
+        // slår tärningarna
         private void diceRoll(object sender, RoutedEventArgs e)
         {
             dice1 = model.dice();
@@ -664,6 +673,7 @@ namespace Backgammon
             //player.Play();
         } // diceRoll
 
+        // byter spelare
         private void changePlayer()
         {
             if (activePlayer == white)
@@ -690,6 +700,7 @@ namespace Backgammon
             DiceView2.Opacity = 0;
         } // changePlayer
 
+        // skapar en bricka
         private Ellipse load_piece()
         {
             Ellipse _piece = new Ellipse();
@@ -704,6 +715,7 @@ namespace Backgammon
             return _piece;
         } // load_piece
 
+        // lägger ut alla brickor på spelplanen
         private void insert_pieces()
         {
             int rad = 24;
@@ -713,29 +725,21 @@ namespace Backgammon
                 el.Fill = piece_light;
                 if (i < 5)
                 {
-                    //Canvas.SetLeft(el, 3);
-                    //Canvas.SetTop(el, rad * (i % 5));
                     Layout( el, 3, rad * (i % 5));
                     white._laces[11] = 5;
                 }
                 else if (i < 7)
                 {
-                    //Canvas.SetLeft(el, 363);
-                    //Canvas.SetTop(el, rad * (i % 5));
                     Layout( el, 363, rad * (i % 5));
                     white._laces[0] = 2;
                 }
                 else if (i < 10)
                 {
-                    //Canvas.SetLeft(el, 123);
-                    //Canvas.SetTop(el, 248 + (rad * (i % 7)));
                     Layout( el, 123, 248 + (rad * (i % 7)));
                     white._laces[16] = 3;
                 }
                 else
                 {
-                    //Canvas.SetLeft(el, 213);
-                    //Canvas.SetTop(el, 200 + (rad * (i % 5)));
                     Layout( el, 213, 200 + (rad * (i % 5)));
                     white._laces[18] = 5;
                 }
@@ -746,35 +750,28 @@ namespace Backgammon
                 el.Fill = piece_dark;
                 if (i < 5)
                 {
-                    //Canvas.SetLeft(el, 3);
-                    //Canvas.SetTop(el, 200 + (rad * (i % 5)));
                     Layout( el, 3, 200 + (rad * (i % 5)));
                     black._laces[12] = 5;
                 }
                 else if (i < 7)
                 {
-                    //Canvas.SetLeft(el, 363);
-                    //Canvas.SetTop(el, 272 + (rad * (i % 5)));
                     Layout( el, 363, 272 + (rad * (i % 5)));
                     black._laces[23] = 2;
                 }
                 else if (i < 10)
                 {
-                    //Canvas.SetLeft(el, 123);
-                    //Canvas.SetTop(el, rad * (i % 7));
                     Layout( el, 123, rad * (i % 7));
                     black._laces[7] = 3;
                 }
                 else
                 {
-                    //Canvas.SetLeft(el, 213);
-                    //Canvas.SetTop(el, rad * (i % 5));
                     Layout( el, 213, rad * (i % 5));
                     black._laces[5] = 5;
                 }
             }
         } // insert_pieces
 
+        // tar bort alla brickor och siffror
         private void remove_pieces()
         {
             _totalChildren = theCanvas.Children.Count - 1;
@@ -874,6 +871,7 @@ namespace Backgammon
             menuGrid.Opacity = 1;
         } // menu_action
 
+        // animerar ut brickorna på planen vid start
         private void Layout( Ellipse el, double newX, double newY )
         {
             double top = Canvas.GetTop( el );
@@ -900,6 +898,7 @@ namespace Backgammon
             layout.Begin();
         }
 
+        // animerar flytt av bricka
         private void MovePiece( Ellipse el, double newX, double newY)
         {
             double top = Canvas.GetTop( el );
