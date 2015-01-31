@@ -157,7 +157,7 @@ namespace Backgammon
                     }
                 }
             }
-            else
+            else if (activePlayer._out > 0 && DiceRoll.IsEnabled == false && lightup_out_possible() == true)
             {
                 Point p;
                 if (activePlayer == black)
@@ -171,6 +171,10 @@ namespace Backgammon
                     Ellipse el = (Ellipse)obj;
                     el.Effect = SE_light;
                 }
+            }
+            else if (activePlayer._out > 0 && DiceRoll.IsEnabled == false && lightup_out_possible() == false)
+            {
+                changePlayer();
             }
         } // lightup_pieces
 
@@ -227,7 +231,6 @@ namespace Backgammon
 
         private void lightup_out()
         {
-            bool possibleMove = false;
             if (activePlayer == black)
             {
                 d1 = 24 - dice1;
@@ -243,23 +246,45 @@ namespace Backgammon
             if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
             {
                 polygons[d1].Fill = Brushes.Yellow;
-                possibleMove = true;
             }
             if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
             {
                 polygons[d2].Fill = Brushes.Yellow;
-                possibleMove = true;
             }
             if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
             {
                 polygons[d3].Fill = Brushes.Yellow;
-                possibleMove = true;
-            }
-            if (!possibleMove)
-            {
-                changePlayer();
             }
         } // lightup_out
+
+        private bool lightup_out_possible()
+        {
+            if (activePlayer == black)
+            {
+                d1 = 24 - dice1;
+                d2 = 24 - dice2;
+                d3 = 24 - dice1 - dice2;
+            }
+            else
+            {
+                d1 = dice1 - 1;
+                d2 = dice2 - 1;
+                d3 = dice1 + dice2 - 1;
+            }
+            if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
+            {
+                return true;
+            }
+            if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
+            {
+                return true;
+            }
+            if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
+            {
+                return true;
+            }
+            return false;
+        } // lightup_out_possible
 
         private void select_piece( Object obj )
         {
@@ -309,6 +334,11 @@ namespace Backgammon
                 {
                     activePlayer._out--;
                     activePlayer._laces[move]++;
+                    
+                    if (activePlayer._out > 1 && activePlayer == black)
+                        setNumber( 183, 252, activePlayer._out );
+                    else if (activePlayer._out > 1 && activePlayer == white)
+                        setNumber( 183, 92, inactivePlayer._out );
                 }
 
                 if (move == d1 && dice1 != 0)
@@ -334,13 +364,11 @@ namespace Backgammon
                     if (move < 12)
                     {
                         MovePiece( _pieceSelected, model.pointX[move], spacing * 4 );
-                        removeNumber( model.pointX[move], 120 );
                         setNumber( model.pointX[move], 120, activePlayer._laces[move] );
                     }
                     else
                     {
                         MovePiece( _pieceSelected, model.pointX[move], 320 - spacing * 5 );
-                        removeNumber( model.pointX[move], 170 );
                         setNumber( model.pointX[move], 170, activePlayer._laces[move] );
                     }
                 }
@@ -359,12 +387,10 @@ namespace Backgammon
                 {
                     if (start < 12)
                     {
-                        removeNumber( model.pointX[start], 120 );
                         setNumber( model.pointX[start], 120, activePlayer._laces[start] );
                     }
                     else
                     {
-                        removeNumber( model.pointX[start], 170 );
                         setNumber( model.pointX[start], 170, activePlayer._laces[start] );
                     }
                 }
@@ -389,12 +415,12 @@ namespace Backgammon
 
         private void setNumber(double newX, double newY, int i)
         {
+            removeNumber( newX, newY );
             TextBlock numberOfPieces = new TextBlock();
             numberOfPieces.Height = 24;
             numberOfPieces.Width = 24;
             numberOfPieces.FontSize = 20;
             numberOfPieces.TextAlignment = TextAlignment.Center;
-            numberOfPieces.IsHitTestVisible = false;
             numberOfPieces.Foreground = Brushes.Yellow;
             numberOfPieces.Effect = SE;
             numberOfPieces.Text = i.ToString();
@@ -467,13 +493,11 @@ namespace Backgammon
             {
                 if (inactivePlayer == black)
                 {
-                    removeNumber( 183, 228 );
-                    setNumber( 183, 228, inactivePlayer._out );
+                    setNumber( 183, 252, inactivePlayer._out );
                 }
                 else
                 {
-                    removeNumber( 183, 68 );
-                    setNumber( 183, 68, inactivePlayer._out );
+                    setNumber( 183, 92, inactivePlayer._out );
                 }
             }
         } // putOut
