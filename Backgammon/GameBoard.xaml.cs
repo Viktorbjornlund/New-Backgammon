@@ -285,10 +285,12 @@ namespace Backgammon
             {
                 return true;
             }
-            if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
-            {
-                return true;
-            }
+
+            //OBS
+            //if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
+            //{
+            //    return true;
+            //}
             return false;
         } // lightup_out_possible
 
@@ -957,6 +959,16 @@ namespace Backgammon
         {
             DoubleAnimation Anim = new DoubleAnimation(1, TimeSpan.FromSeconds(2));
             menu_button.BeginAnimation(Button.OpacityProperty, Anim);
+        }
+
+        private void HowToPlay(object sender, RoutedEventArgs e)
+        {
+            HowTo op = new HowTo();
+            
+            op.Show();
+            op.Left = 270;
+            op.Top = 150;
+            
         }
         }
     }

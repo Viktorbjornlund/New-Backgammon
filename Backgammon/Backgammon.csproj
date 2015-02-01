@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -57,8 +60,15 @@
     <Compile Include="GameBoard.xaml.cs">
       <DependentUpon>GameBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HowTo.xaml.cs">
+      <DependentUpon>HowTo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Page Include="GameBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HowTo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,6 +117,19 @@
     <Resource Include="Grafik\background.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="favicon.ico" />
+    <Resource Include="Grafik\BoardStart.gif" />
+    <Resource Include="Grafik\nextBtn.png" />
+    <Resource Include="Grafik\bild2.gif" />
+    <Resource Include="Grafik\bild3.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Grafik\bild4.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Grafik\bild1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Grafik\noSound.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

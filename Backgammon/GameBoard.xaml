@@ -283,6 +283,8 @@
             <UniformGrid Rows="5" Columns="1" Height="200" Width="100">
                 <Button Style="{DynamicResource ButtonStyle}" Name="Resume" Click="resume_game">Resume</Button>
                 <Button Style="{DynamicResource ButtonStyle}" Name="NewGame" Click="new_game">New Game</Button>
+                <Button Style="{DynamicResource ButtonStyle}" Name="HowTo" Click="HowToPlay">How to play</Button>
+
                 <Button Style="{DynamicResource ButtonStyle}" Name="Exit" Click="exit_game">Exit</Button>
             </UniformGrid>
         </Grid>
