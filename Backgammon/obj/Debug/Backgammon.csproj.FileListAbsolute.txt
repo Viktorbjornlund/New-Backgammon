@@ -277,3 +277,5 @@ C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.P
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.exe
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\HowTo.g.cs
+C:\Users\Axel Nyberg\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\HowTo.baml

@@ -855,6 +855,8 @@ namespace Backgammon
             lightdown_polygons();
             remove_pieces();
             insert_pieces();
+            blackHome.Background = home_image;
+            whiteHome.Background = home_image;
         } // new_game
 
         private void exit_game(object sender, RoutedEventArgs e)
