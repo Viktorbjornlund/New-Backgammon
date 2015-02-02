@@ -8,7 +8,7 @@
         Title="HowTo" Height="520" Width="690">
     <Grid >
         <Grid.Background>
-            <ImageBrush ImageSource="Grafik/wood-border2.jpg"></ImageBrush>
+            <ImageBrush ImageSource="Grafik/metal-surface.jpg"></ImageBrush>
         </Grid.Background>
 
         <Button Width="70" Name="btn_nextSlide" Click="btn_next1" Height="70" Margin="513,371,43.233,29.667" >
@@ -16,7 +16,7 @@
         </Button>
         <TextBlock Name="txt_1"  HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="401" Width="663"> <Bold>
 
- Backgammon is a board game for two players, played with two dice each, thirty checkers/markers, and on a board made up of twenty-four narrow triangles called "points".  The points alternate in colour and are grouped into six triangular points on each quarter of the board.  Each quarter of the board is known as a player's home board, outer board, and their opponent's home board and outer board.  The home and outer boards are divided by a line/ridge down the centre of the board called the "bar".
+ Backgammon is a board game for two players, played with two dice, thirty checkers/markers, and on a board made up of twenty-four narrow triangles called "points".  The points alternate in colour and are grouped into six triangular points on each quarter of the board. Each quarter of the board is known as a player's home board, outer board, and their opponent's home board and outer board.  The home and outer boards are divided by a line/ridge down the centre of the board called the "bar".
 
 Player's points are conventionally referred to by their position number starting at one in the player's home board, which would also be their opponents outermost 24 point, going up incrementally as you move along and around..</Bold></TextBlock>
 

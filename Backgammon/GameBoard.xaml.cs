@@ -82,14 +82,14 @@ namespace Backgammon
             polygon_light.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-light.jpg", UriKind.Relative ) );
             polygon_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-dark.jpg", UriKind.Relative ) );
             piece_light.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-white.jpg", UriKind.Relative ) );
-            piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.jpg", UriKind.Relative ) );
+            piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.png", UriKind.Relative ) );
             home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/wood-border2.jpg", UriKind.Relative ) );
             SB = new Storyboard();
             SE.BlurRadius = 3;
             SE.ShadowDepth = 0;
-            SE_light.BlurRadius = 10;
+            SE_light.BlurRadius = 25;
             SE_light.ShadowDepth = 0;
-            SE_light.Color = Color.FromRgb( 255, 255, 235 );
+            SE_light.Color = Color.FromRgb( 255, 255, 235);
             playMusic();
             
             InitializeComponent();
@@ -112,6 +112,11 @@ namespace Backgammon
         {
             lightdown_pieces();
 
+            if (moveToFinish())
+                activePlayer._goalReady = true;
+            else
+                activePlayer._goalReady = false;
+
             if (activePlayer._out == 0 && DiceRoll.IsEnabled == false)
             {
                 for (int i = 0; i < 24; i++)
@@ -130,7 +135,7 @@ namespace Backgammon
                             d2 = i + dice2;
                             d3 = i + dice1 + dice2;
                         }
-                        if ((d1 >= 0 && d1 <= 23 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && d2 <= 23 && inactivePlayer._laces[d2] <= 1 && dice2 != 0))
+                        if ((d1 >= 0 && d1 <= 23 && inactivePlayer._laces[d1] <= 1 && dice1 != 0) || (d2 >= 0 && d2 <= 23 && inactivePlayer._laces[d2] <= 1 && dice2 != 0) || (activePlayer._goalReady == true && ((d1 < 0 || d2 < 0 || d3 < 0) || (d1 > 23 || d2 > 23 || d3 > 23))))
                         {
                             Point p;
                             if (activePlayer._laces[i] > 5)
@@ -158,7 +163,7 @@ namespace Backgammon
                     }
                 }
             }
-            else if (activePlayer._out > 0 && DiceRoll.IsEnabled == false && lightup_out_possible() == true)
+            else if (activePlayer._out > 0 && DiceRoll.IsEnabled == false && lightup_out_possible() == true && activePlayer._goalReady == false)
             {
                 Point p;
                 if (activePlayer == black)
@@ -209,28 +214,54 @@ namespace Backgammon
                 d3 = i + dice1 + dice2;
             }
             if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
-                polygons[d1].Fill = Brushes.Yellow;
+            {
+                polygons[d1].Effect = SE_light;
+                //polygonPulse( polygons[d1] );
+            }
             if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
-                polygons[d2].Fill = Brushes.Yellow;
+            {
+                polygons[d2].Effect = SE_light;
+                //polygonPulse( polygons[d2] );
+            }
             if (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1)
-                polygons[d3].Fill = Brushes.Yellow;
-            if (activePlayer._goalReady && (d1 == -1 || d1 < -1 || d2 == -1 || d2 < -1 || d3 == -1 || d3 < -1))
-                homeGrid.Background = Brushes.Red;
+            {
+                polygons[d3].Effect = SE_light;
+                //polygonPulse( polygons[d3] );
+            }
+            // Om jämnt tal till mål med antincen dice1, dice2 eller dice1+2 lys rött. 
+            if (activePlayer._goalReady == true && ((d1 == -1 || d2 == -1 || d3 == -1) || (d1 == 24 || d2 == 24 || d3 == 24)))
+                homeGrid.Effect = SE_light;
+            // om jämnt eller högre tal till mål med antingen dice1, dice2 eller dice1+2 OCH inga gula polynom 
+            if (activePlayer._goalReady == true && ((d1 < -1 || d2 < -1 || d3 < -1) || (d1 > 24 || d2 > 24 || d3 > 24)) && !isYellow())
+                homeGrid.Effect = SE_light;
         } // lightup_polygons
+
+        private bool isYellow()
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                if (polygons[i].Effect == SE_light)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         // släcker alla polygoner
         private void lightdown_polygons()
         {
             for (int i = 0; i < 24; i++)
             {
-                if (polygons[i].Fill == Brushes.Yellow)
+                if (polygons[i].Effect == SE_light)
                 {
                     if (i % 2 == 0)
-                        polygons[i].Fill = polygon_dark;
+                        polygons[i].Effect = null;
                     else
-                        polygons[i].Fill = polygon_light;
+                        polygons[i].Effect = null;
                 }
             }
+            homeGrid.Effect = SE;
         } // lightdown_polygons
 
         // lyser upp de trianglar som den utspelade brickan kan flyttas till
@@ -250,15 +281,15 @@ namespace Backgammon
             }
             if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
             {
-                polygons[d1].Fill = Brushes.Yellow;
+                polygons[d1].Effect = SE_light;
             }
             if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
             {
-                polygons[d2].Fill = Brushes.Yellow;
+                polygons[d2].Effect = SE_light;
             }
             if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
             {
-                polygons[d3].Fill = Brushes.Yellow;
+                polygons[d3].Effect = SE_light;
             }
         } // lightup_out
 
@@ -333,7 +364,7 @@ namespace Backgammon
         // flyttar brickan till en triangel
         private void moveToPolygon( int move )
         {
-            if (polygons[move].Fill == Brushes.Yellow)
+            if (polygons[move].Effect == SE_light)
             {
                 if (activePlayer._out == 0)
                 {
@@ -425,7 +456,7 @@ namespace Backgammon
                         removeNumber( model.pointX[start], 170 );
                     }
                 }
-                homeGrid.Background = home_image;
+                homeGrid.Effect = SE;
             }
             else
             {
@@ -527,54 +558,77 @@ namespace Backgammon
 
         private void moveHome()
         {
-            if (blackHome.Background == Brushes.Red || whiteHome.Background == Brushes.Red)
+            int distance = 0;
+            double homeX = 428;
+            double homeY = 0;
+            if (activePlayer == black)
             {
-                int distance = 0;
-                if (activePlayer == black)
-                    distance = start - (-1);
-                else
-                    distance = 24 - start;
-                if (distance <= dice1 + dice2 && distance > dice1 && distance > dice2)
+                distance = start - (-1);
+                homeY = 58;
+            }
+            else
+            {
+                distance = 24 - start;
+                homeY = 238;
+            }
+            if (distance <= dice1 + dice2 && distance > dice1 && distance > dice2)
+            {
+                dice1 = 0;
+                dice2 = 0;
+                DiceView1.Effect = blur;
+                DiceView2.Effect = blur;
+            }
+            if (dice1 != dice2)
+            {
+                if (distance == dice1)
                 {
                     dice1 = 0;
-                    dice2 = 0;
                     DiceView1.Effect = blur;
+                }
+                if (distance == dice2)
+                {
+                    dice2 = 0;
                     DiceView2.Effect = blur;
                 }
-                if (dice1 != dice2)
+
+                if (distance < dice1 && distance < dice2)
                 {
-                    if (distance == dice1)
+                    if (dice1 > dice2)
                     {
                         dice1 = 0;
                         DiceView1.Effect = blur;
                     }
-                    if (distance == dice2)
+                    else
                     {
                         dice2 = 0;
                         DiceView2.Effect = blur;
                     }
-
-                    if (distance < dice1 && distance < dice2)
-                    {
-                        if (dice1 > dice2)
-                        {
-                            dice1 = 0;
-                            DiceView1.Effect = blur;
-                        }
-                        else
-                        {
-                            dice2 = 0;
-                            DiceView2.Effect = blur;
-                        }
-                    }
                 }
-                else
+            }
+            else
+            {
+                dice1 = 0;
+                DiceView1.Effect = blur;
+            }
+            activePlayer._laces[start]--;
+            activePlayer._bricksAmount--;
+            MovePiece( _pieceSelected, homeX, homeY );
+            setNumber( homeX, homeY + 24, 15 - activePlayer._bricksAmount );
+            if (black._bricksAmount == 0)
+            {
+                MessageBoxResult result = MessageBox.Show( "Congratulations black player, you won!", "Congratulations", MessageBoxButton.OK );
+                if (result == MessageBoxResult.OK)
                 {
-                    dice1 = 0;
-                    DiceView1.Effect = blur;
+                    Application.Current.Shutdown();
                 }
-                activePlayer._laces[start]--;
-                activePlayer._bricksAmount--;
+            }
+            else if (white._bricksAmount == 0)
+            {
+                MessageBoxResult result = MessageBox.Show( "Congratulations white player, you won!", "Congratulations", MessageBoxButton.OK );
+                if (result == MessageBoxResult.OK)
+                {
+                    Application.Current.Shutdown();
+                }
             }
         } // moveHome
 
@@ -604,11 +658,6 @@ namespace Backgammon
         private void Canvas_MouseDown_1( object sender, MouseButtonEventArgs e )
         {
             Point pt = e.GetPosition( theCanvas );
-            
-            if (moveToFinish())
-                activePlayer._goalReady = true;
-            else
-                activePlayer._goalReady = false;
 
             if (_pieceSelected == null)
             {
@@ -625,21 +674,40 @@ namespace Backgammon
             {
                 int move = 0;
                 _posOfMouseOnHit = pt;
-                for (int i = 0; i < 24; i++)
+                int topY = 0;
+                int bottomY = 0;
+                if (activePlayer == black)
                 {
-                    if (i < 12 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y < 160)
-                    {
-                        move = i;
-                    }
-                    else if (i > 11 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y > 160)
-                    {
-                        move = i;
-                    }
+                    topY = 10;
+                    bottomY = 130;
                 }
-                moveToPolygon( move );
-                putOut(move);
-                moveHome();
-                homeGrid.Background = home_image;
+                else
+                {
+                    topY = 190;
+                    bottomY = 310;
+                }
+                if (_posOfMouseOnHit.X > 415 && _posOfMouseOnHit.X < 465 && _posOfMouseOnHit.Y > topY && _posOfMouseOnHit.Y < bottomY && homeGrid.Effect == SE_light)
+                {
+                    moveHome();
+                }
+                else
+                {
+                    for (int i = 0; i < 24; i++)
+                    {
+                        if (i < 12 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y < 160)
+                        {
+                            move = i;
+                        }
+                        else if (i > 11 && _posOfMouseOnHit.X >= model.pointX[i] - 3 && _posOfMouseOnHit.X < model.pointX[i] + 27 && _posOfMouseOnHit.Y > 160)
+                        {
+                            move = i;
+                        }
+                    }
+                    moveToPolygon( move );
+                    putOut( move );
+                    
+                }
+                homeGrid.Effect = SE;
 
                 if(activePlayer._bricksAmount==0)
                 {
@@ -650,11 +718,11 @@ namespace Backgammon
                 {
                     changePlayer();
                 }
-
                 _pieceSelected = null;
-
                 lightdown_polygons();
+                lightup_pieces();
             }
+            
         } // Mouse Down
 
         // slår tärningarna
@@ -708,7 +776,7 @@ namespace Backgammon
             Ellipse _piece = new Ellipse();
             _piece.Height = 24;
             _piece.Width = 24;
-            _piece.StrokeThickness = 1;
+            _piece.StrokeThickness = 0.3;
             _piece.Stroke = Brushes.Black; 
             _piece.Effect = SE;
             theCanvas.Children.Add(_piece);
@@ -855,6 +923,8 @@ namespace Backgammon
             lightdown_polygons();
             remove_pieces();
             insert_pieces();
+            blackHome.Effect = SE;
+            whiteHome.Effect = SE;
         } // new_game
 
         private void exit_game(object sender, RoutedEventArgs e)
@@ -920,7 +990,23 @@ namespace Backgammon
             SB.Children.Add(anim2);
             SB.Begin();
         } // MovePiece Animation
-        
+
+        //private void polygonPulse( Polygon poly )
+        //{
+        //    DoubleAnimation anim1 = new DoubleAnimation( 0, 1, TimeSpan.FromSeconds( 0.3 ) );
+        //    //DoubleAnimation anim2 = new DoubleAnimation( 1, 0, TimeSpan.FromSeconds( 0.5 ) );
+
+        //    Storyboard story = new Storyboard();
+        //    story.Duration = TimeSpan.FromSeconds( 1 );
+        //    story.RepeatBehavior = RepeatBehavior.Forever;
+        //    Storyboard.SetTarget( anim1, poly );
+        //    Storyboard.SetTargetProperty( anim1, new PropertyPath( Polygon.OpacityProperty ) );
+        //    story.Children.Add( anim1 );
+        //    //Storyboard.SetTarget( anim2, poly );
+        //    //Storyboard.SetTargetProperty( anim2, new PropertyPath( Polygon.OpacityProperty ) );
+        //    //story.Children.Add( anim2 );
+        //    story.Begin();
+        //}
 
         private void playMusic()
         {

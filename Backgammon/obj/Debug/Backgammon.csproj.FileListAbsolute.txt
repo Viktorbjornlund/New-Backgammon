@@ -277,3 +277,7 @@ C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.P
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.csproj.GenerateResource.Cache
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.exe
 C:\Users\Sevag\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\Backgammon.pdb
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\HowTo.g.cs
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\obj\Debug\HowTo.baml
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\piece-red.jpg
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon\bin\Debug\Grafik\piece-black.png
