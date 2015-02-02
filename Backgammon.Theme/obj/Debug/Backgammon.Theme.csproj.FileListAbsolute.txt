@@ -41,4 +41,3 @@ C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backg
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csproj.GenerateResource.Cache
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.dll
 C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.pdb
-C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Debug\Backgammon.Theme.csprojResolveAssemblyReference.cache
