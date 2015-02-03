@@ -84,7 +84,7 @@ namespace Backgammon
             polygon_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-dark.jpg", UriKind.Relative ) );
             piece_light.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-white.jpg", UriKind.Relative ) );
             piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.png", UriKind.Relative ) );
-            home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/wood-border2.jpg", UriKind.Relative ) );
+            home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/metal-surface.jpg", UriKind.Relative ) );
             SB = new Storyboard();
             story = new Storyboard();
             SE.BlurRadius = 3;
@@ -773,8 +773,9 @@ namespace Backgammon
                 blackTurnArrow.Opacity = 1;
                 whiteTurnArrow.Opacity = 0;
                 story.Stop();
+                homeGrid.Background = home_image;
                 homeGrid = blackHome;
-                Pulse( homeGrid );
+                homeGrid.Background = Brushes.PaleGreen;
             }
             else
             {
@@ -783,8 +784,9 @@ namespace Backgammon
                 blackTurnArrow.Opacity = 0;
                 whiteTurnArrow.Opacity = 1;
                 story.Stop();
+                homeGrid.Background = home_image;
                 homeGrid = whiteHome;
-                Pulse( homeGrid );
+                homeGrid.Background = Brushes.PaleGreen;
             }
             dice1 = 0;
             dice2 = 0;
@@ -800,7 +802,7 @@ namespace Backgammon
             Ellipse _piece = new Ellipse();
             _piece.Height = 24;
             _piece.Width = 24;
-            _piece.StrokeThickness = 0.3;
+            _piece.StrokeThickness = 0.5;
             _piece.Stroke = Brushes.Black; 
             _piece.Effect = SE;
             theCanvas.Children.Add(_piece);
@@ -944,8 +946,7 @@ namespace Backgammon
             activePlayer = black;
             inactivePlayer = white;
             homeGrid = blackHome;
-            story.Stop();
-            Pulse( homeGrid );
+            homeGrid.Background = Brushes.PaleGreen;
 
             lightdown_polygons();
             remove_pieces();
@@ -1015,23 +1016,23 @@ namespace Backgammon
             SB.Begin();
         } // MovePiece Animation
 
-        private void Pulse( Grid grid )
-        {
-            DoubleAnimation anim1 = new DoubleAnimation( 1, 0.2, TimeSpan.FromSeconds( 0.5 ) );
-            //DoubleAnimation anim2 = new DoubleAnimation( 1, 0, TimeSpan.FromSeconds( 0.5 ) );
+        //private void Pulse( Grid grid )
+        //{
+        //    DoubleAnimation anim1 = new DoubleAnimation( 1, 0.2, TimeSpan.FromSeconds( 0.5 ) );
+        //    //DoubleAnimation anim2 = new DoubleAnimation( 1, 0, TimeSpan.FromSeconds( 0.5 ) );
 
-            story.Children.Clear();
-            story.Duration = TimeSpan.FromSeconds( 1 );
-            story.RepeatBehavior = RepeatBehavior.Forever;
-            anim1.AutoReverse = true;
-            Storyboard.SetTarget( anim1, grid);
-            Storyboard.SetTargetProperty( anim1, new PropertyPath( Grid.OpacityProperty ) );
-            story.Children.Add( anim1 );
-            //Storyboard.SetTarget( anim2, poly );
-            //Storyboard.SetTargetProperty( anim2, new PropertyPath( Polygon.OpacityProperty ) );
-            //story.Children.Add( anim2 );
-            story.Begin();
-        }
+        //    story.Children.Clear();
+        //    story.Duration = TimeSpan.FromSeconds( 1 );
+        //    story.RepeatBehavior = RepeatBehavior.Forever;
+        //    anim1.AutoReverse = true;
+        //    Storyboard.SetTarget( anim1, grid);
+        //    Storyboard.SetTargetProperty( anim1, new PropertyPath( Grid.OpacityProperty ) );
+        //    story.Children.Add( anim1 );
+        //    //Storyboard.SetTarget( anim2, poly );
+        //    //Storyboard.SetTargetProperty( anim2, new PropertyPath( Polygon.OpacityProperty ) );
+        //    //story.Children.Add( anim2 );
+        //    story.Begin();
+        //}
 
         private void playMusic()
         {

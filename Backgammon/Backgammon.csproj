@@ -136,9 +136,9 @@
     <Resource Include="Grafik\metal-surf.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Grafik\metal-surface.jpg">
+    <Content Include="Grafik\metal-surface.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Content Include="Grafik\noSound.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
