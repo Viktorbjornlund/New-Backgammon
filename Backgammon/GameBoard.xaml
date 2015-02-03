@@ -240,7 +240,7 @@
                                 <Grid.Effect>
                                     <DropShadowEffect BlurRadius="8" Direction="315" ShadowDepth="4"/>
                                 </Grid.Effect>
-                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red" FontWeight="Bold">Player 2</Label>
+                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red">Player 2</Label>
 
 
                                 <Grid.Background>
@@ -256,7 +256,7 @@
                                 <Grid.Background>
                                     <ImageBrush ImageSource="Grafik/metal-surface.jpg"/>
                                 </Grid.Background>
-                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red" FontWeight="Bold">Player 1</Label>
+                                <Label FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Red">Player 1</Label>
                             </Grid>
                             <Grid Height="50">
                                 <Grid.ColumnDefinitions>
@@ -264,10 +264,10 @@
                                     <ColumnDefinition Width="50*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <UniformGrid Grid.Column="0">
-                                    <Image Name="DiceView1" Source="Grafik\Dice1.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                                    <Image Name="DiceView1" Source="Grafik\Dice3.png" Stretch="Uniform" HorizontalAlignment="Center" Width="40"/>
                                 </UniformGrid>
                                 <UniformGrid Grid.Column="1">
-                                    <Image Name="DiceView2" Source="Grafik\Dice5.png" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+                                    <Image Name="DiceView2" Source="Grafik\Dice3.png" Stretch="Uniform" HorizontalAlignment="Center" Width="40"/>
                                 </UniformGrid>
                             </Grid>
                         </Grid>

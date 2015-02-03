@@ -20,7 +20,7 @@
 
 Player's points are conventionally referred to by their position number starting at one in the player's home board, which would also be their opponents outermost 24 point, going up incrementally as you move along and around..</Bold></TextBlock>
 
-        <Image Name="pic_1"  Source="Grafik/BoardStart.gif" Margin="-18,160,8.333,40.617">
+        <Image Name="pic_1"  Source="Grafik/BoardStart.gif" Margin="-18,193,8,8">
         </Image>
         <Button Opacity="0"  Click="btn_next1" Name="btn_gotIt" Margin="537,391,24.333,60.667">Got it let`s play</Button>
     </Grid> 

@@ -1,0 +1,10 @@
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\bin\Release\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\bin\Release\Backgammon.Theme.pdb
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\ButtonStyle.baml
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Theme.baml
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme_MarkupCompile.cache
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme.g.resources
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme.Properties.Resources.resources
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme.dll
+C:\Users\Viktor\Documents\GitHub\New-Backgammon\Backgammon.Theme\obj\Release\Backgammon.Theme.pdb

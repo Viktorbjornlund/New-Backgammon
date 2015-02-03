@@ -31,6 +31,7 @@ namespace Backgammon
         Grid homeGrid;
 
         Storyboard SB;
+        Storyboard story;
 
         private int dice1, dice2, start;
         private int d1, d2, d3;
@@ -85,6 +86,7 @@ namespace Backgammon
             piece_dark.ImageSource = new BitmapImage( new Uri( @"Grafik/piece-black.png", UriKind.Relative ) );
             home_image.ImageSource = new BitmapImage( new Uri( @"Grafik/wood-border2.jpg", UriKind.Relative ) );
             SB = new Storyboard();
+            story = new Storyboard();
             SE.BlurRadius = 3;
             SE.ShadowDepth = 0;
             SE_light.BlurRadius = 25;
@@ -158,6 +160,7 @@ namespace Backgammon
                             {
                                 Ellipse el = (Ellipse)obj;
                                 el.Effect = SE_light;
+                                el.Stroke = Brushes.PaleGreen;
                             }
                         }
                     }
@@ -176,6 +179,7 @@ namespace Backgammon
                 {
                     Ellipse el = (Ellipse)obj;
                     el.Effect = SE_light;
+                    el.Stroke = Brushes.PaleGreen;
                 }
             }
             else if (activePlayer._out > 0 && DiceRoll.IsEnabled == false && lightup_out_possible() == false)
@@ -194,6 +198,7 @@ namespace Backgammon
                 {
                     Ellipse el = (Ellipse)theCanvas.Children[i];
                     el.Effect = SE;
+                    el.Stroke = Brushes.Black;
                 }
             }
         } // lightdown_pieces
@@ -216,21 +221,26 @@ namespace Backgammon
             if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
             {
                 polygons[d1].Effect = SE_light;
+                polygons[d1].Stroke = Brushes.PaleGreen;
                 //polygonPulse( polygons[d1] );
             }
             if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
             {
                 polygons[d2].Effect = SE_light;
+                polygons[d2].Stroke = Brushes.PaleGreen;
                 //polygonPulse( polygons[d2] );
             }
             if (d3 >= 0 && d3 <= 23 && inactivePlayer._laces[d3] <= 1)
             {
                 polygons[d3].Effect = SE_light;
+                polygons[d3].Stroke = Brushes.PaleGreen;
                 //polygonPulse( polygons[d3] );
             }
             // Om jämnt tal till mål med antincen dice1, dice2 eller dice1+2 lys rött. 
             if (activePlayer._goalReady == true && ((d1 == -1 || d2 == -1 || d3 == -1) || (d1 == 24 || d2 == 24 || d3 == 24)))
+            {
                 homeGrid.Effect = SE_light;
+            }
             // om jämnt eller högre tal till mål med antingen dice1, dice2 eller dice1+2 OCH inga gula polynom 
             if (activePlayer._goalReady == true && ((d1 < -1 || d2 < -1 || d3 < -1) || (d1 > 24 || d2 > 24 || d3 > 24)) && !isYellow())
                 homeGrid.Effect = SE_light;
@@ -256,9 +266,15 @@ namespace Backgammon
                 if (polygons[i].Effect == SE_light)
                 {
                     if (i % 2 == 0)
+                    {
                         polygons[i].Effect = null;
+                        polygons[i].Stroke = null;
+                    }
                     else
+                    {
                         polygons[i].Effect = null;
+                        polygons[i].Stroke = null;
+                    }
                 }
             }
             homeGrid.Effect = SE;
@@ -282,14 +298,17 @@ namespace Backgammon
             if (d1 >= 0 && d1 <= 23 && dice1 != 0 && inactivePlayer._laces[d1] <= 1)
             {
                 polygons[d1].Effect = SE_light;
+                polygons[d1].Stroke = Brushes.PaleGreen;
             }
             if (d2 >= 0 && d2 <= 23 && dice2 != 0 && inactivePlayer._laces[d2] <= 1)
             {
                 polygons[d2].Effect = SE_light;
+                polygons[d2].Stroke = Brushes.PaleGreen;
             }
             if (d3 >= 0 && d3 <= 23 && dice1 != 0 && dice2 != 0 && inactivePlayer._laces[d3] <= 1)
             {
                 polygons[d3].Effect = SE_light;
+                polygons[d3].Stroke = Brushes.PaleGreen;
             }
         } // lightup_out
 
@@ -352,6 +371,7 @@ namespace Backgammon
                     }
                     lightdown_pieces();
                     _pieceSelected.Effect = SE_light;
+                    _pieceSelected.Stroke = Brushes.PaleGreen;
                     lightup_polygons( start );
                 }
                 else
@@ -402,7 +422,7 @@ namespace Backgammon
                     dice2 = 0;
                     DiceView2.Effect = blur;
                 }
-                else if (move == d3 && dice1 != 0 && dice2 != 0)
+                if (move == d3 && dice1 != 0 && dice2 != 0)
                 {
                     dice1 = 0;
                     dice2 = 0;
@@ -752,7 +772,9 @@ namespace Backgammon
                 inactivePlayer = white;
                 blackTurnArrow.Opacity = 1;
                 whiteTurnArrow.Opacity = 0;
+                story.Stop();
                 homeGrid = blackHome;
+                Pulse( homeGrid );
             }
             else
             {
@@ -760,7 +782,9 @@ namespace Backgammon
                 inactivePlayer = black;
                 blackTurnArrow.Opacity = 0;
                 whiteTurnArrow.Opacity = 1;
+                story.Stop();
                 homeGrid = whiteHome;
+                Pulse( homeGrid );
             }
             dice1 = 0;
             dice2 = 0;
@@ -910,6 +934,7 @@ namespace Backgammon
 
             blackTurnArrow.Opacity = 1;
             whiteTurnArrow.Opacity = 0;
+
             black._out = 0;
             white._out = 0;
             black._goalReady = false;
@@ -919,6 +944,8 @@ namespace Backgammon
             activePlayer = black;
             inactivePlayer = white;
             homeGrid = blackHome;
+            story.Stop();
+            Pulse( homeGrid );
 
             lightdown_polygons();
             remove_pieces();
@@ -975,13 +1002,10 @@ namespace Backgammon
         {
             double top = Canvas.GetTop( el );
             double left = Canvas.GetLeft( el );
-
             SB.Children.Clear();
             SB.Duration = TimeSpan.FromSeconds( 1 );
-            
             DoubleAnimation anim1 = new DoubleAnimation( left, newX, TimeSpan.FromSeconds( 1 ) );
             DoubleAnimation anim2 = new DoubleAnimation( top, newY, TimeSpan.FromSeconds( 1 ) );
-            
             Storyboard.SetTarget(anim1, el);
             Storyboard.SetTargetProperty(anim1, new PropertyPath(Canvas.LeftProperty));
             SB.Children.Add(anim1);
@@ -991,22 +1015,23 @@ namespace Backgammon
             SB.Begin();
         } // MovePiece Animation
 
-        //private void polygonPulse( Polygon poly )
-        //{
-        //    DoubleAnimation anim1 = new DoubleAnimation( 0, 1, TimeSpan.FromSeconds( 0.3 ) );
-        //    //DoubleAnimation anim2 = new DoubleAnimation( 1, 0, TimeSpan.FromSeconds( 0.5 ) );
+        private void Pulse( Grid grid )
+        {
+            DoubleAnimation anim1 = new DoubleAnimation( 1, 0.2, TimeSpan.FromSeconds( 0.5 ) );
+            //DoubleAnimation anim2 = new DoubleAnimation( 1, 0, TimeSpan.FromSeconds( 0.5 ) );
 
-        //    Storyboard story = new Storyboard();
-        //    story.Duration = TimeSpan.FromSeconds( 1 );
-        //    story.RepeatBehavior = RepeatBehavior.Forever;
-        //    Storyboard.SetTarget( anim1, poly );
-        //    Storyboard.SetTargetProperty( anim1, new PropertyPath( Polygon.OpacityProperty ) );
-        //    story.Children.Add( anim1 );
-        //    //Storyboard.SetTarget( anim2, poly );
-        //    //Storyboard.SetTargetProperty( anim2, new PropertyPath( Polygon.OpacityProperty ) );
-        //    //story.Children.Add( anim2 );
-        //    story.Begin();
-        //}
+            story.Children.Clear();
+            story.Duration = TimeSpan.FromSeconds( 1 );
+            story.RepeatBehavior = RepeatBehavior.Forever;
+            anim1.AutoReverse = true;
+            Storyboard.SetTarget( anim1, grid);
+            Storyboard.SetTargetProperty( anim1, new PropertyPath( Grid.OpacityProperty ) );
+            story.Children.Add( anim1 );
+            //Storyboard.SetTarget( anim2, poly );
+            //Storyboard.SetTargetProperty( anim2, new PropertyPath( Polygon.OpacityProperty ) );
+            //story.Children.Add( anim2 );
+            story.Begin();
+        }
 
         private void playMusic()
         {
@@ -1038,12 +1063,12 @@ namespace Backgammon
         }
         private void Mouse_leave_Menu(object sender, MouseEventArgs e)
         {
-            DoubleAnimation Anim = new DoubleAnimation(0.2, TimeSpan.FromSeconds(2));
+            DoubleAnimation Anim = new DoubleAnimation(0.4, TimeSpan.FromSeconds(2));
             menu_button.BeginAnimation(Button.OpacityProperty, Anim);
         }
         private void Mouse_enter_menu(object sender, MouseEventArgs e)
         {
-            DoubleAnimation Anim = new DoubleAnimation(1, TimeSpan.FromSeconds(2));
+            DoubleAnimation Anim = new DoubleAnimation(1, TimeSpan.FromSeconds(1));
             menu_button.BeginAnimation(Button.OpacityProperty, Anim);
         }
 

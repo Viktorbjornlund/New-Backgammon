@@ -28,6 +28,8 @@ namespace Backgammon
 
         private void btn_next1(object sender, RoutedEventArgs e)
         {
+            txt_1.FontFamily = new System.Windows.Media.FontFamily( "TimesNewRomanBold" );
+            txt_1.FontSize = 14;
             i += 1;
             if (i == 1)
             {

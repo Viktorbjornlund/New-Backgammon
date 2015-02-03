@@ -5,7 +5,7 @@
         Title="Rex Backgammon">
     <Border BorderThickness="10" >
         <Border.BorderBrush>
-            <ImageBrush ImageSource="Grafik/metal-surf.jpg"/>
+            <ImageBrush ImageSource="Grafik/metal-surface.jpg"/>
         </Border.BorderBrush>
         <Viewbox Stretch="Fill">
             <local:GameBoard/>
